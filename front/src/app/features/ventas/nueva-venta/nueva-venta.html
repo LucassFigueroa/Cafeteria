@@ -1,0 +1,291 @@
+<section>
+
+  <div class="page-header">
+
+    <div>
+
+      <h1 class="page-title">
+        Nueva venta
+      </h1>
+
+      <p class="page-subtitle">
+        Selecciona los productos del pedido
+      </p>
+
+    </div>
+
+  </div>
+
+
+  @if (mensaje) {
+
+    <div
+      class="message"
+      [class.success]="mensajeOk"
+    >
+      {{ mensaje }}
+    </div>
+
+  }
+
+
+  <div class="sale-layout">
+
+
+    <section class="products-area">
+
+      <div class="filters">
+
+        <div class="search">
+
+          🔎
+
+          <input
+            type="text"
+            placeholder="Buscar producto..."
+            [(ngModel)]="busqueda"
+          >
+
+        </div>
+
+
+        <select
+          [(ngModel)]="categoriaFiltro"
+        >
+
+          @for (
+            categoria of categorias;
+            track categoria
+          ) {
+
+            <option
+              [value]="categoria"
+            >
+              {{ categoria }}
+            </option>
+
+          }
+
+        </select>
+
+      </div>
+
+
+      <div class="product-grid">
+
+        @for (
+          producto of productosDisponibles;
+          track producto.id
+        ) {
+
+          <article
+            class="product-card"
+          >
+
+            <div class="product-image">
+              ☕
+            </div>
+
+
+            <span class="category">
+              {{ producto.categoria }}
+            </span>
+
+
+            <h3>
+              {{ producto.nombre }}
+            </h3>
+
+
+            <div class="product-info">
+
+              <strong>
+                {{ clp(producto.precio) }}
+              </strong>
+
+              <small
+                [class.low]="producto.stock <= 5"
+              >
+                Stock:
+                {{ producto.stock }}
+              </small>
+
+            </div>
+
+
+            <button
+              type="button"
+              [disabled]="producto.stock === 0"
+              (click)="agregar(producto)"
+            >
+              {{
+                producto.stock > 0
+                  ? '+ Agregar'
+                  : 'Sin stock'
+              }}
+            </button>
+
+          </article>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <aside class="cart">
+
+      <div class="cart-header">
+
+        <div>
+
+          <h2>
+            Pedido
+          </h2>
+
+          <span>
+            {{ carrito.length }}
+            productos
+          </span>
+
+        </div>
+
+        <div class="cart-icon">
+          🛒
+        </div>
+
+      </div>
+
+
+      <div class="cart-items">
+
+        @for (
+          item of carrito;
+          track item.productoId
+        ) {
+
+          <article class="cart-item">
+
+            <div class="cart-item-top">
+
+              <div>
+
+                <strong>
+                  {{ item.nombre }}
+                </strong>
+
+                <span>
+                  {{ clp(item.precio) }}
+                </span>
+
+              </div>
+
+
+              <button
+                class="remove"
+                type="button"
+                (click)="quitar(item)"
+              >
+                ×
+              </button>
+
+            </div>
+
+
+            <div class="cart-item-bottom">
+
+              <div class="quantity">
+
+                <button
+                  type="button"
+                  (click)="disminuir(item)"
+                >
+                  −
+                </button>
+
+                <span>
+                  {{ item.cantidad }}
+                </span>
+
+                <button
+                  type="button"
+                  (click)="incrementar(item)"
+                >
+                  +
+                </button>
+
+              </div>
+
+
+              <strong>
+
+                {{
+                  clp(
+                    item.precio *
+                    item.cantidad
+                  )
+                }}
+
+              </strong>
+
+            </div>
+
+          </article>
+
+        }
+
+        @empty {
+
+            <div class="empty-cart">
+
+              <div>
+                🛒
+              </div>
+
+              <strong>
+                Tu pedido está vacío
+              </strong>
+
+              <span>
+                Agrega productos para comenzar
+              </span>
+
+            </div>
+
+          }
+
+      </div>
+
+
+      <div class="cart-footer">
+
+        <div class="total">
+
+          <span>
+            Total
+          </span>
+
+          <strong>
+            {{ clp(total) }}
+          </strong>
+
+        </div>
+
+
+        <button
+          class="confirm"
+          type="button"
+          [disabled]="carrito.length === 0"
+          (click)="confirmarVenta()"
+        >
+          Confirmar venta
+        </button>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</section>

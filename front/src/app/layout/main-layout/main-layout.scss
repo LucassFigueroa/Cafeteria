@@ -1,0 +1,34 @@
+.app-shell {
+
+  display: flex;
+
+  min-height: 100vh;
+}
+
+
+.main-area {
+
+  flex: 1;
+
+  min-width: 0;
+
+  background:
+    var(--cream);
+}
+
+
+.content {
+
+  padding: 32px;
+}
+
+
+@media (
+  max-width: 900px
+) {
+
+  .content {
+    padding: 20px;
+  }
+
+}

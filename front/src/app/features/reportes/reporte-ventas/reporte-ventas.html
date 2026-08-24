@@ -1,0 +1,276 @@
+<section>
+
+  <div class="page-header">
+
+    <div>
+
+      <h1 class="page-title">
+        Reporte de ventas
+      </h1>
+
+      <p class="page-subtitle">
+        Consulta las ventas realizadas por fecha
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <section class="card filters">
+
+    <div class="field">
+
+      <label>
+        Desde
+      </label>
+
+      <input
+        type="date"
+        [(ngModel)]="desde"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Hasta
+      </label>
+
+      <input
+        type="date"
+        [(ngModel)]="hasta"
+      >
+
+    </div>
+
+
+    <button
+      class="search-button"
+      type="button"
+      (click)="buscar()"
+    >
+      🔎 Buscar
+    </button>
+
+
+    <button
+      class="today-button"
+      type="button"
+      (click)="hoy()"
+    >
+      Hoy
+    </button>
+
+  </section>
+
+
+  <div class="stats">
+
+    <article>
+
+      <span>
+        Ventas
+      </span>
+
+      <strong>
+        {{ ventas.length }}
+      </strong>
+
+    </article>
+
+
+    <article>
+
+      <span>
+        Ingresos
+      </span>
+
+      <strong>
+        {{ clp(totalVentas) }}
+      </strong>
+
+    </article>
+
+
+    <article>
+
+      <span>
+        Productos vendidos
+      </span>
+
+      <strong>
+        {{ productosVendidos }}
+      </strong>
+
+    </article>
+
+
+    <article>
+
+      <span>
+        Más vendido
+      </span>
+
+      <strong class="product-name">
+        {{ productoMasVendido }}
+      </strong>
+
+    </article>
+
+  </div>
+
+
+  <section class="card report-card">
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Venta
+            </th>
+
+            <th>
+              Fecha
+            </th>
+
+            <th>
+              Hora
+            </th>
+
+            <th>
+              Productos
+            </th>
+
+            <th>
+              Total
+            </th>
+
+            <th>
+              Detalle
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          @for (
+            venta of ventas;
+            track venta.id
+          ) {
+
+            <tr>
+
+              <td>
+                #{{ venta.id }}
+              </td>
+
+              <td>
+                {{ fecha(venta.fecha) }}
+              </td>
+
+              <td>
+                {{ hora(venta.fecha) }}
+              </td>
+
+              <td>
+                {{ cantidadProductos(venta) }}
+              </td>
+
+              <td class="money">
+                {{ clp(venta.total) }}
+              </td>
+
+              <td>
+
+                <button
+                  class="detail-button"
+                  type="button"
+                  (click)="mostrarDetalle(venta.id)"
+                >
+                  {{
+                    detalleId === venta.id
+                      ? 'Ocultar'
+                      : 'Ver'
+                  }}
+                </button>
+
+              </td>
+
+            </tr>
+
+
+            @if (
+              detalleId === venta.id
+            ) {
+
+              <tr class="detail-row">
+
+                <td colspan="6">
+
+                  <div class="detail-box">
+
+                    @for (
+                      item of venta.items;
+                      track item.productoId
+                    ) {
+
+                      <div class="detail-item">
+
+                        <span>
+
+                          {{ item.cantidad }}
+                          ×
+                          {{ item.nombre }}
+
+                        </span>
+
+                        <strong>
+                          {{ clp(item.subtotal) }}
+                        </strong>
+
+                      </div>
+
+                    }
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            }
+
+          } @empty {
+
+            <tr>
+
+              <td
+                colspan="6"
+                class="empty"
+              >
+                No existen ventas para las fechas seleccionadas.
+              </td>
+
+            </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</section>

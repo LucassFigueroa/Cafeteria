@@ -1,0 +1,202 @@
+<section>
+
+  <div class="title-row">
+
+    <div>
+
+      <h1 class="page-title">
+        Dashboard
+      </h1>
+
+      <p class="page-subtitle">
+        Resumen general de tu cafetería
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="stats">
+
+    <article class="stat-card">
+
+      <div class="stat-icon">
+        $
+      </div>
+
+      <div>
+
+        <span>
+          Ventas de hoy
+        </span>
+
+        <strong>
+          {{ clp(totalHoy()) }}
+        </strong>
+
+        <small>
+          Ingresos del día
+        </small>
+
+      </div>
+
+    </article>
+
+
+    <article class="stat-card">
+
+      <div class="stat-icon">
+        ☕
+      </div>
+
+      <div>
+
+        <span>
+          Productos
+        </span>
+
+        <strong>
+          {{ productos().length }}
+        </strong>
+
+        <small>
+          Registrados
+        </small>
+
+      </div>
+
+    </article>
+
+
+    <article class="stat-card warning">
+
+      <div class="stat-icon">
+        !
+      </div>
+
+      <div>
+
+        <span>
+          Stock bajo
+        </span>
+
+        <strong>
+          {{ stockBajo().length }}
+        </strong>
+
+        <small>
+          Requieren atención
+        </small>
+
+      </div>
+
+    </article>
+
+
+    <article class="stat-card">
+
+      <div class="stat-icon">
+        #
+      </div>
+
+      <div>
+
+        <span>
+          Ventas realizadas
+        </span>
+
+        <strong>
+          {{ ventasHoy().length }}
+        </strong>
+
+        <small>
+          Durante el día
+        </small>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <section class="card recent">
+
+    <div class="card-header">
+
+      <div>
+
+        <h2>
+          Últimas ventas
+        </h2>
+
+        <p>
+          Operaciones registradas recientemente
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Venta</th>
+            <th>Hora</th>
+            <th>Productos</th>
+            <th>Total</th>
+            <th>Estado</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          @for (
+            venta of ultimasVentas();
+            track venta.id
+          ) {
+
+            <tr>
+
+              <td>
+                #{{ venta.id }}
+              </td>
+
+              <td>
+                {{ hora(venta.fecha) }}
+              </td>
+
+              <td>
+                {{ cantidadItems(venta) }}
+              </td>
+
+              <td class="money">
+                {{ clp(venta.total) }}
+              </td>
+
+              <td>
+                <span class="status">
+                  Completada
+                </span>
+              </td>
+
+            </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</section>

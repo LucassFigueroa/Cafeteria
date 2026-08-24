@@ -1,0 +1,404 @@
+<section>
+
+  <div class="page-header">
+
+    <div>
+
+      <h1 class="page-title">
+        Productos
+      </h1>
+
+      <p class="page-subtitle">
+        Administra los productos disponibles
+      </p>
+
+    </div>
+
+
+    <button
+      class="primary-button"
+      type="button"
+      (click)="abrirNuevo()"
+    >
+      + Nuevo producto
+    </button>
+
+  </div>
+
+
+  <section class="card products-card">
+
+    <div class="toolbar">
+
+      <div class="search">
+
+        <span>
+          🔎
+        </span>
+
+        <input
+          type="text"
+          placeholder="Buscar producto..."
+          [(ngModel)]="busqueda"
+        >
+
+      </div>
+
+
+      <select
+        [(ngModel)]="categoriaFiltro"
+      >
+
+        @for (
+          categoria of categorias;
+          track categoria
+        ) {
+
+          <option
+            [value]="categoria"
+          >
+            {{ categoria }}
+          </option>
+
+        }
+
+      </select>
+
+    </div>
+
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Producto
+            </th>
+
+            <th>
+              Categoría
+            </th>
+
+            <th>
+              Precio
+            </th>
+
+            <th>
+              Stock
+            </th>
+
+            <th>
+              Estado
+            </th>
+
+            <th>
+              Acciones
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          @for (
+            producto of productosFiltrados;
+            track producto.id
+          ) {
+
+            <tr>
+
+              <td>
+
+                <div class="product-name">
+
+                  <div class="product-icon">
+                    ☕
+                  </div>
+
+                  <strong>
+                    {{ producto.nombre }}
+                  </strong>
+
+                </div>
+
+              </td>
+
+
+              <td>
+
+                <span class="category">
+                  {{ producto.categoria }}
+                </span>
+
+              </td>
+
+
+              <td class="price">
+                {{ clp(producto.precio) }}
+              </td>
+
+
+              <td>
+
+                <span
+                  class="stock"
+                  [class.low]="producto.stock <= 5"
+                >
+                  {{ producto.stock }}
+                </span>
+
+              </td>
+
+
+              <td>
+
+                <span
+                  class="status"
+                  [class.inactive]="!producto.activo"
+                >
+
+                  {{
+                    producto.activo
+                      ? 'Activo'
+                      : 'Inactivo'
+                  }}
+
+                </span>
+
+              </td>
+
+
+              <td>
+
+                <div class="actions">
+
+                  <button
+                    class="edit"
+                    type="button"
+                    (click)="editar(producto)"
+                  >
+                    ✏️
+                  </button>
+
+
+                  <button
+                    class="delete"
+                    type="button"
+                    (click)="eliminar(producto)"
+                  >
+                    🗑️
+                  </button>
+
+                </div>
+
+              </td>
+
+            </tr>
+
+          } @empty {
+
+            <tr>
+
+              <td
+                colspan="6"
+                class="empty"
+              >
+                No se encontraron productos.
+              </td>
+
+            </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+
+  @if (modalAbierto) {
+
+    <div
+      class="modal-overlay"
+      (click)="cerrarModal()"
+    >
+
+      <section
+        class="modal"
+        (click)="$event.stopPropagation()"
+      >
+
+        <div class="modal-header">
+
+          <div>
+
+            <h2>
+              {{
+                editandoId === null
+                  ? 'Nuevo producto'
+                  : 'Editar producto'
+              }}
+            </h2>
+
+            <p>
+              Completa la información del producto
+            </p>
+
+          </div>
+
+
+          <button
+            class="close"
+            type="button"
+            (click)="cerrarModal()"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <form
+          [formGroup]="form"
+          (ngSubmit)="guardar()"
+        >
+
+          <div class="field">
+
+            <label>
+              Nombre
+            </label>
+
+            <input
+              type="text"
+              formControlName="nombre"
+              placeholder="Ej: Cappuccino"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Categoría
+            </label>
+
+            <select
+              formControlName="categoria"
+            >
+
+              <option value="Café">
+                Café
+              </option>
+
+              <option value="Té">
+                Té
+              </option>
+
+              <option value="Pastelería">
+                Pastelería
+              </option>
+
+              <option value="Sándwich">
+                Sándwich
+              </option>
+
+              <option value="Bebida">
+                Bebida
+              </option>
+
+              <option value="Otro">
+                Otro
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="field-grid">
+
+            <div class="field">
+
+              <label>
+                Precio
+              </label>
+
+              <input
+                type="number"
+                formControlName="precio"
+                min="1"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                Stock
+              </label>
+
+              <input
+                type="number"
+                formControlName="stock"
+                min="0"
+              >
+
+            </div>
+
+          </div>
+
+
+          <label class="switch-field">
+
+            <input
+              type="checkbox"
+              formControlName="activo"
+            >
+
+            <span>
+              Producto activo
+            </span>
+
+          </label>
+
+
+          <div class="modal-actions">
+
+            <button
+              class="secondary-button"
+              type="button"
+              (click)="cerrarModal()"
+            >
+              Cancelar
+            </button>
+
+
+            <button
+              class="primary-button"
+              type="submit"
+            >
+              Guardar
+            </button>
+
+          </div>
+
+        </form>
+
+      </section>
+
+    </div>
+
+  }
+
+</section>

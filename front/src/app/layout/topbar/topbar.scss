@@ -1,0 +1,97 @@
+.topbar {
+
+  height: 78px;
+
+  padding:
+    0
+    32px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: white;
+
+  border-bottom:
+    1px solid
+    var(--border);
+}
+
+
+.welcome {
+
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 12px;
+
+  color:
+    var(--text-soft);
+
+  text-transform: capitalize;
+}
+
+
+.topbar strong {
+
+  color:
+    var(--coffee-dark);
+}
+
+
+.user {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+.avatar {
+
+  width: 43px;
+
+  height: 43px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    var(--cream-dark);
+
+  color:
+    var(--coffee-dark);
+
+  font-weight: 800;
+}
+
+
+.user strong {
+
+  display: block;
+
+  font-size: 14px;
+}
+
+
+.user span {
+
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 11px;
+
+  color:
+    var(--text-soft);
+}

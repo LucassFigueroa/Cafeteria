@@ -1,0 +1,144 @@
+:root {
+
+  --coffee-dark:
+    #3d281f;
+
+  --coffee:
+    #72513b;
+
+  --coffee-light:
+    #a37858;
+
+  --caramel:
+    #d7a574;
+
+  --cream:
+    #f8f3ed;
+
+  --cream-dark:
+    #eee4d9;
+
+  --white:
+    #ffffff;
+
+  --text:
+    #332a26;
+
+  --text-soft:
+    #776a63;
+
+  --success:
+    #557c55;
+
+  --danger:
+    #b95555;
+
+  --border:
+    #e5dbd2;
+}
+
+
+* {
+
+  box-sizing:
+    border-box;
+}
+
+
+html,
+body {
+
+  min-height:
+    100%;
+
+  margin: 0;
+}
+
+
+body {
+
+  min-height:
+    100vh;
+
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:
+    var(--cream);
+
+  color:
+    var(--text);
+}
+
+
+button,
+input,
+select {
+
+  font: inherit;
+}
+
+
+button {
+
+  transition:
+    all
+    0.2s
+    ease;
+}
+
+
+.page-title {
+
+  margin: 0;
+
+  color:
+    var(--coffee-dark);
+
+  font-size:
+    28px;
+
+  font-weight:
+    800;
+}
+
+
+.page-subtitle {
+
+  margin:
+    7px
+    0
+    0;
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    13px;
+}
+
+
+.card {
+
+  background:
+    var(--white);
+
+  border-radius:
+    18px;
+
+  border:
+    1px solid
+    var(--border);
+
+  box-shadow:
+    0 8px 30px
+    rgba(
+      61,
+      40,
+      31,
+      0.06
+    );
+}

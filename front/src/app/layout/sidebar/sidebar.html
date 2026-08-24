@@ -1,0 +1,93 @@
+<aside class="sidebar">
+
+  <div class="brand">
+
+    <div class="brand-logo">
+      ☕
+    </div>
+
+    <div>
+
+      <strong>
+        CoffeeFlow
+      </strong>
+
+      <span>
+        Cafetería
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <nav>
+
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active"
+    >
+      <span class="icon">
+        ▦
+      </span>
+
+      Dashboard
+    </a>
+
+
+    <a
+      routerLink="/productos"
+      routerLinkActive="active"
+    >
+      <span class="icon">
+        ☕
+      </span>
+
+      Productos
+    </a>
+
+
+    <a
+      routerLink="/ventas"
+      routerLinkActive="active"
+    >
+      <span class="icon">
+        🛒
+      </span>
+
+      Nueva venta
+    </a>
+
+
+    <a
+      routerLink="/reportes"
+      routerLinkActive="active"
+    >
+      <span class="icon">
+        ▤
+      </span>
+
+      Reportes
+    </a>
+
+  </nav>
+
+
+  <div class="sidebar-bottom">
+
+    <button
+      type="button"
+      (click)="cerrarSesion()"
+    >
+
+      <span class="icon">
+        ↪
+      </span>
+
+      Cerrar sesión
+
+    </button>
+
+  </div>
+
+</aside>
