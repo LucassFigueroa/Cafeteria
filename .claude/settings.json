@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npx ng serve --port 4200)",
+      "PowerShell($mvn = 'C:\\\\Users\\\\Central Gamer\\\\.m2\\\\wrapper\\\\dists\\\\apache-maven-3.9.14\\\\db91789b\\\\bin\\\\mvn.cmd'; for \\($i=0;$i -lt 30;$i++\\){ try { if \\(\\(Invoke-WebRequest -UseBasicParsing http://localhost:4200 -TimeoutSec 3\\).StatusCode -eq 200\\) { 'server up'; break } } catch { Start-Sleep 2 } }; cd ..\\\\pruebas-selenium; & $mvn -q test -Dheadless=true 2>&1 | Select-String -Pattern 'Tests run|FAIL|ERROR\\\\]|expected|Exception' | Select-Object -First 60)",
+      "PowerShell(Get-Content target\\\\surefire-reports\\\\cl.duoc.coffeeflow.tests.CP01LoginExitosoTest.txt | Select-Object -First 25; Get-Content \"$env:TEMP\\\\claude\\\\c--Users-Central-Gamer-Documents-Cafeteria\\\\e827daeb-440d-46e0-a549-928d17b8f51c\\\\tasks\\\\b4ab9kvy9.output\" -Tail 15)",
+      "PowerShell(npx --yes serve@14 -s dist/front/browser -l 8080 --no-clipboard)",
+      "PowerShell(powershell -ExecutionPolicy Bypass -File .\\\\pruebas-carga\\\\ejecutar-jmeter.ps1 2>&1 | Select-String -NotMatch 'summary \\\\+|Waiting for|Tidying|end of run|Creating summariser|Created the tree|Starting standalone|Generating Dashboard')",
+      "PowerShell(Select-String -Path front\\\\coverage\\\\front\\\\lcov.info -Pattern '^SF:' | Select-Object -First 3 | ForEach-Object Line; Get-Content resultados-sonar\\\\medidas.json -Raw | ConvertFrom-Json | ForEach-Object { $_.component.measures | ForEach-Object { '{0} = {1}' -f $_.metric, $\\(if \\($_.value\\) { $_.value } else { $_.period.value }\\) } })",
+      "PowerShell(Get-Content \"$env:TEMP\\\\claude\\\\c--Users-Central-Gamer-Documents-Cafeteria\\\\e827daeb-440d-46e0-a549-928d17b8f51c\\\\tasks\\\\b7i9d2b9f.output\" -Tail 8; Test-Path coffe\\\\target\\\\classes)",
+      "PowerShell($s=\"$env:TEMP\\\\claude\\\\c--Users-Central-Gamer-Documents-Cafeteria\\\\e827daeb-440d-46e0-a549-928d17b8f51c\\\\scratchpad\"; Remove-Item \"$s\\\\tpl\" -Recurse -Force -ErrorAction SilentlyContinue; Expand-Archive \"C:\\\\Users\\\\Central Gamer\\\\Pictures\\\\PLANTILLA INFORME PARCIAL 2.docx\" \"$s\\\\tpl\"; Get-ChildItem \"$s\\\\tpl\" -Recurse -File | ForEach-Object { '{0,8} {1}' -f $_.Length, $_.FullName.Substring\\($s.Length+5\\) })",
+      "PowerShell(Get-Content \"$env:TEMP\\\\claude\\\\c--Users-Central-Gamer-Documents-Cafeteria\\\\e827daeb-440d-46e0-a549-928d17b8f51c\\\\tasks\\\\b7i9d2b9f.output\" | Select-String '==>|summary =' | Select-Object -Last 12)"
+    ]
+  }
+}

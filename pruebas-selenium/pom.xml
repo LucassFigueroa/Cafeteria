@@ -46,6 +46,7 @@
                     <systemPropertyVariables>
                         <baseUrl>${baseUrl}</baseUrl>
                         <headless>${headless}</headless>
+                        <browser>${browser}</browser>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

@@ -98,6 +98,14 @@ $token = (Invoke-RestMethod -Method Post -Uri "$SONAR_URL/api/user_tokens/genera
 
 # ---------------------------------------------------------------------
 Paso '5/7 Ejecutando SonarScanner sobre CoffeeFlow'
+$lcov = Join-Path $raiz 'front\coverage\front\lcov.info'
+if (Test-Path $lcov) {
+    # El lcov de "ng test" es relativo a front\; SonarQube resuelve las rutas desde la raiz.
+    (Get-Content $lcov) -replace '^SF:(?!front)', 'SF:front/' -replace '\\', '/' |
+        Set-Content -Encoding ascii (Join-Path $raiz 'front\coverage\front\lcov-sonar.info')
+} else {
+    Write-Host 'Sin cobertura: ejecuta "cd front ; npx ng test --watch=false --coverage" antes del analisis.'
+}
 Push-Location $raiz
 try {
     & npx --yes '@sonar/scan' "-Dsonar.host.url=$SONAR_URL" "-Dsonar.token=$token"

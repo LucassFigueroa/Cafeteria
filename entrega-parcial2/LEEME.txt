@@ -1,0 +1,30 @@
+﻿ENTREGA EVALUACION PARCIAL N.2 - TCY0101 TECNICAS DE CALIDAD DE SOFTWARE
+Sistema: CoffeeFlow (SPA Angular 21 de gestion para cafeteria)
+Integrantes: Lucas Figueroa (Estudiante 1) - Santiago Serrano (Estudiante 2)
+Seccion 001D - Docente: Alicia Elena Ramos de Peraza
+Fecha de ejecucion: 18-10-2026
+
+CONTENIDO
+  Informe_Parcial2_CoffeeFlow.docx / .pdf   Informe en la plantilla oficial: pruebas automatizadas, unitarias y de
+                                     integracion, inspeccion SonarQube, vulnerabilidades (OWASP ZAP / npm audit),
+                                     carga y estres (JMeter), resultados totalizados, metricas y conclusiones.
+  Ejecucion_Pruebas_CoffeeFlow.xlsx  Detalle de cada ejecucion (Selenium, Vitest, JMeter, ZAP, SonarQube),
+                                     resumen totalizado, defectos y matriz de trazabilidad.
+  evidencias\                        Capturas de Selenium por caso de prueba (CP-01 a CP-21).
+  capturas\                          Capturas de los reportes de cada herramienta.
+  reportes\                          Reportes originales generados por las herramientas:
+      selenium-surefire\             Reportes XML/TXT de Maven Surefire + surefire.html
+      vitest\                        junit.xml y reporte HTML de cobertura
+      sonarqube\                     medidas, issues, hotspots y quality gate (JSON de la API)
+      zap\                           ZAP_CoffeeFlow.html / .json
+      npm-audit.json
+      jmeter\                        resumen.csv y dashboard HTML por escenario
+  proyectos-de-prueba.zip            Codigo de las pruebas (pruebas-selenium, specs del front, planes JMeter y ZAP)
+
+COMO REEJECUTAR (desde la carpeta Cafeteria del repositorio)
+  Automatizadas:   cd front ; npm start      ->  cd pruebas-selenium ; mvn test -Dheadless=true
+  Unitarias:       cd front ; npx ng test --watch=false --coverage
+  SonarQube:       powershell -ExecutionPolicy Bypass -File .\ejecutar-sonarqube.ps1
+  Sitio estatico:  cd front ; npx ng build --stats-json ; npx serve@14 -s dist/front/browser -l 8080
+  OWASP ZAP:       powershell -ExecutionPolicy Bypass -File .\pruebas-seguridad\ejecutar-zap.ps1
+  JMeter:          powershell -ExecutionPolicy Bypass -File .\pruebas-carga\ejecutar-jmeter.ps1

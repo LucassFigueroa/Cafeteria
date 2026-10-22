@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------------
+Test set: cl.duoc.coffeeflow.tests.CP17DatosCorruptosTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 6.492 s <<< FAILURE! -- in cl.duoc.coffeeflow.tests.CP17DatosCorruptosTest
+cl.duoc.coffeeflow.tests.CP17DatosCorruptosTest.seRecuperaConDatosPorDefecto -- Time elapsed: 6.491 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+La aplicacion no se recupero: el Dashboard no se mostro. Errores de consola: [http://localhost:4200/@fs/C:/Users/Central%20Gamer/Documents/Cafeteria/front/.angular/cache/21.2.21/front/vite/deps/chunk-ZG55BM36.js?v=c81c8b01 6099:18 "ERROR" SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+    at JSON.parse (<anonymous>)
+    at _CafeteriaService.cargarDatos (http://localhost:4200/chunk-BKQZ665C.js:32:36)
+    at new _CafeteriaService (http://localhost:4200/chunk-BKQZ665C.js:23:10)
+    at Object.CafeteriaService_Factory [as factory] (http://localhost:4200/chunk-BKQZ665C.js:306:12)
+    at http://localhost:4200/@fs/C:/Users/Central%20Gamer/Documents/Cafeteria/front/.angular/cache/21.2.21/front/vite/deps/chunk-ZG55BM36.js?v=c81c8b01:4796:35
+    at runInInjectorProfilerContext (http://localhost:4200/@fs/C:/Users/Central%20Gamer/Documents/Cafeteria/front/.angular/cache/21.2.21/front/vite/deps/chunk-ZG55BM36.js?v=c81c8b01:3940:5)
+    at R3Injector.hydrate (http://localhost:4200/@fs/C:/Users/Central%20Gamer/Documents/Cafeteria/front/.angular/cache/21.2.21/front/vite/deps/chunk-ZG55BM36.js?v=c81c8b01:4794:11)
+    at R3Injector.get (http://localhost:4200/@fs/C:/Users/Central%20Gamer/Documents/Cafeteria/front/.angular/cache/21.2.21/front/vite/deps/chunk-ZG55BM36.js?v=c81c8b01:4683:23)
+    at ChainedInjector.get (http://localhost:4200/@fs/C:/Users/Central%20Gamer/Documents/Cafeteria/front/.angular/cache/21.2.21/front/vite/deps/chunk-ZG55BM36.js?v=c81c8b01:14163:32)
+    at lookupTokenUsingModuleInjector (http://localhost:4200/@fs/C:/Users/Central%20Gamer/Documents/Cafeteria/front/.angular/cache/21.2.21/front/vite/deps/chunk-ZG55BM36.js?v=c81c8b01:7337:31)] ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at cl.duoc.coffeeflow.tests.CP17DatosCorruptosTest.seRecuperaConDatosPorDefecto(CP17DatosCorruptosTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

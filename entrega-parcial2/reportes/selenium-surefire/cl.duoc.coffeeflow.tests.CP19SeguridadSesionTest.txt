@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: cl.duoc.coffeeflow.tests.CP19SeguridadSesionTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 6.784 s <<< FAILURE! -- in cl.duoc.coffeeflow.tests.CP19SeguridadSesionTest
+cl.duoc.coffeeflow.tests.CP19SeguridadSesionTest.flagManipuladoNoDaAcceso -- Time elapsed: 4.887 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Con solo escribir coffeeflow_logged='true' en localStorage se accedio a http://localhost:4200/dashboard (sesion no verificable) ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at cl.duoc.coffeeflow.tests.CP19SeguridadSesionTest.flagManipuladoNoDaAcceso(CP19SeguridadSesionTest.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+cl.duoc.coffeeflow.tests.CP19SeguridadSesionTest.credencialesNoEmbebidasEnElCliente -- Time elapsed: 0.973 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: El codigo descargado por el navegador contiene la comparacion usuario === 'admin' && password === '1234' (resultado: true) ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:239)
+	at cl.duoc.coffeeflow.tests.CP19SeguridadSesionTest.credencialesNoEmbebidasEnElCliente(CP19SeguridadSesionTest.java:71)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

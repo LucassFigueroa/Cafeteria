@@ -1,0 +1,1183 @@
+﻿{
+    "total":  21,
+    "p":  1,
+    "ps":  500,
+    "paging":  {
+                   "pageIndex":  1,
+                   "pageSize":  500,
+                   "total":  21
+               },
+    "effortTotal":  105,
+    "issues":  [
+                   {
+                       "key":  "636bb3f7-dae6-4a6e-a6e7-a4fee095efde",
+                       "rule":  "css:S7924",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/auth/login/login.scss",
+                       "project":  "coffeeflow",
+                       "line":  300,
+                       "hash":  "6c509a862ad3f4db9b3b56db2d55a8dc",
+                       "textRange":  {
+                                         "startLine":  300,
+                                         "endLine":  300,
+                                         "startOffset":  2,
+                                         "endOffset":  17
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Text does not meet the minimal contrast requirement with its background.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "css",
+                                    "accessibility",
+                                    "wcag",
+                                    "contrast"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "628005ae-93cb-4b1c-9466-f831fbf0e1ba",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  39,
+                       "hash":  "cdc25cdd05ee25c9ea83a53a4aa750dd",
+                       "textRange":  {
+                                         "startLine":  39,
+                                         "endLine":  43,
+                                         "startOffset":  8,
+                                         "endOffset":  9
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "a3d0224c-7564-43a8-82ec-bf7409d066ab",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  48,
+                       "hash":  "aece516c50753ef033ded35ef5969b26",
+                       "textRange":  {
+                                         "startLine":  48,
+                                         "endLine":  50,
+                                         "startOffset":  6,
+                                         "endOffset":  7
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "3e16ade4-c9d2-4e1d-8ab9-89b081375b9a",
+                       "rule":  "Web:MouseEventWithoutKeyboardEquivalentCheck",
+                       "severity":  "MINOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  229,
+                       "hash":  "d90c26198ff23a5c54f81269ceed5c01",
+                       "textRange":  {
+                                         "startLine":  229,
+                                         "endLine":  232,
+                                         "startOffset":  4,
+                                         "endOffset":  5
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add a \u0027onKeyDown|onKeyUp\u0027 attribute to this \u003cdiv\u003e tag.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "COMPLETE",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "b74ae10b-0263-41af-8895-93139dd0c6ab",
+                       "rule":  "Web:MouseEventWithoutKeyboardEquivalentCheck",
+                       "severity":  "MINOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  234,
+                       "hash":  "668effcdb04b304548f336a6e7ec5919",
+                       "textRange":  {
+                                         "startLine":  234,
+                                         "endLine":  237,
+                                         "startOffset":  6,
+                                         "endOffset":  7
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add a \u0027onKeyDown|onKeyUp\u0027 attribute to this \u003csection\u003e tag.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "COMPLETE",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "147a6802-79f4-4b48-98f6-b2e4939847a0",
+                       "rule":  "Web:S6853",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  276,
+                       "hash":  "31b381cdc99a7234c9af07c2c899d05a",
+                       "textRange":  {
+                                         "startLine":  276,
+                                         "endLine":  276,
+                                         "startOffset":  12,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "A form label must be associated with a control and have accessible text.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "LOGICAL",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "6a154a27-1f81-4993-a617-883d1f9d438b",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  280,
+                       "hash":  "cdc25cdd05ee25c9ea83a53a4aa750dd",
+                       "textRange":  {
+                                         "startLine":  280,
+                                         "endLine":  284,
+                                         "startOffset":  12,
+                                         "endOffset":  13
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "f32504b9-7c4c-4477-b6b3-7995ab0b98a2",
+                       "rule":  "Web:S6853",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  291,
+                       "hash":  "31b381cdc99a7234c9af07c2c899d05a",
+                       "textRange":  {
+                                         "startLine":  291,
+                                         "endLine":  291,
+                                         "startOffset":  12,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "A form label must be associated with a control and have accessible text.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "LOGICAL",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "7697f5ee-95b5-4706-99de-666ae19c302d",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  295,
+                       "hash":  "aece516c50753ef033ded35ef5969b26",
+                       "textRange":  {
+                                         "startLine":  295,
+                                         "endLine":  297,
+                                         "startOffset":  12,
+                                         "endOffset":  13
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "4dd369b4-0326-469e-a1fe-6f8658436e4b",
+                       "rule":  "Web:S6853",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  332,
+                       "hash":  "31b381cdc99a7234c9af07c2c899d05a",
+                       "textRange":  {
+                                         "startLine":  332,
+                                         "endLine":  332,
+                                         "startOffset":  14,
+                                         "endOffset":  21
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "A form label must be associated with a control and have accessible text.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "LOGICAL",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "6455f122-6607-4fa9-bfca-8f91a724e757",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  336,
+                       "hash":  "cdc25cdd05ee25c9ea83a53a4aa750dd",
+                       "textRange":  {
+                                         "startLine":  336,
+                                         "endLine":  340,
+                                         "startOffset":  14,
+                                         "endOffset":  15
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "1db2e9d2-1049-481b-8dc6-77be70b170c8",
+                       "rule":  "Web:S6853",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  347,
+                       "hash":  "31b381cdc99a7234c9af07c2c899d05a",
+                       "textRange":  {
+                                         "startLine":  347,
+                                         "endLine":  347,
+                                         "startOffset":  14,
+                                         "endOffset":  21
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "A form label must be associated with a control and have accessible text.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "LOGICAL",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "cee4ffac-8bc1-489a-8dac-dbb20a4877ee",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                       "project":  "coffeeflow",
+                       "line":  351,
+                       "hash":  "cdc25cdd05ee25c9ea83a53a4aa750dd",
+                       "textRange":  {
+                                         "startLine":  351,
+                                         "endLine":  355,
+                                         "startOffset":  14,
+                                         "endOffset":  15
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "0be028d9-18b0-47db-9c52-063e37754ad4",
+                       "rule":  "Web:S6853",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/reportes/reporte-ventas/reporte-ventas.html",
+                       "project":  "coffeeflow",
+                       "line":  24,
+                       "hash":  "31b381cdc99a7234c9af07c2c899d05a",
+                       "textRange":  {
+                                         "startLine":  24,
+                                         "endLine":  24,
+                                         "startOffset":  6,
+                                         "endOffset":  13
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "A form label must be associated with a control and have accessible text.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "LOGICAL",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "9a4579cb-ebb8-4304-b5f3-0b36d4da0bff",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/reportes/reporte-ventas/reporte-ventas.html",
+                       "project":  "coffeeflow",
+                       "line":  28,
+                       "hash":  "cdc25cdd05ee25c9ea83a53a4aa750dd",
+                       "textRange":  {
+                                         "startLine":  28,
+                                         "endLine":  31,
+                                         "startOffset":  6,
+                                         "endOffset":  7
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "96ae4afa-a54c-4847-a6ab-8657d0251552",
+                       "rule":  "Web:S6853",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/reportes/reporte-ventas/reporte-ventas.html",
+                       "project":  "coffeeflow",
+                       "line":  38,
+                       "hash":  "31b381cdc99a7234c9af07c2c899d05a",
+                       "textRange":  {
+                                         "startLine":  38,
+                                         "endLine":  38,
+                                         "startOffset":  6,
+                                         "endOffset":  13
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "A form label must be associated with a control and have accessible text.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "LOGICAL",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "1389eed8-7b5d-4b55-b360-12195bc24f65",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/reportes/reporte-ventas/reporte-ventas.html",
+                       "project":  "coffeeflow",
+                       "line":  42,
+                       "hash":  "cdc25cdd05ee25c9ea83a53a4aa750dd",
+                       "textRange":  {
+                                         "startLine":  42,
+                                         "endLine":  45,
+                                         "startOffset":  6,
+                                         "endOffset":  7
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "316e0f79-4be7-4d90-9986-20352d6d1f3f",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/ventas/nueva-venta/nueva-venta.html",
+                       "project":  "coffeeflow",
+                       "line":  43,
+                       "hash":  "cdc25cdd05ee25c9ea83a53a4aa750dd",
+                       "textRange":  {
+                                         "startLine":  43,
+                                         "endLine":  47,
+                                         "startOffset":  10,
+                                         "endOffset":  11
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "6306e881-537d-47f0-b6e6-c9daa75700fa",
+                       "rule":  "Web:InputWithoutLabelCheck",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/features/ventas/nueva-venta/nueva-venta.html",
+                       "project":  "coffeeflow",
+                       "line":  52,
+                       "hash":  "aece516c50753ef033ded35ef5969b26",
+                       "textRange":  {
+                                         "startLine":  52,
+                                         "endLine":  54,
+                                         "startOffset":  8,
+                                         "endOffset":  9
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Add an \"id\" attribute to this input field and associate it with a label.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "accessibility",
+                                    "wcag2-a"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "BUG",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "2f4f8162-9212-4496-9bb1-c1521f984cf1",
+                       "rule":  "css:S7924",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/app/layout/sidebar/sidebar.scss",
+                       "project":  "coffeeflow",
+                       "line":  157,
+                       "hash":  "6a5e8cb97ac89286458bcafc604aeda5",
+                       "textRange":  {
+                                         "startLine":  157,
+                                         "endLine":  157,
+                                         "startOffset":  2,
+                                         "endOffset":  15
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Text does not meet the minimal contrast requirement with its background.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "css",
+                                    "accessibility",
+                                    "wcag",
+                                    "contrast"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "7ce3d46f-75df-44af-9688-d9e3b4f09e15",
+                       "rule":  "typescript:S7760",
+                       "severity":  "MAJOR",
+                       "component":  "coffeeflow:front/src/core/services/cafeteria.service.ts",
+                       "project":  "coffeeflow",
+                       "line":  411,
+                       "hash":  "a92c2484ff3a5a6d12898e9f4b0b30f3",
+                       "textRange":  {
+                                         "startLine":  411,
+                                         "endLine":  412,
+                                         "startOffset":  4,
+                                         "endOffset":  28
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Prefer default parameters over reassignment.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "luc.figueroam@duocuc.cl",
+                       "tags":  [
+                                    "es2015",
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-08-24T00:49:01-0400",
+                       "updateDate":  "2026-10-01T10:25:52-0300",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   }
+               ],
+    "components":  [
+                       {
+                           "key":  "coffeeflow:front/src/app/layout/sidebar/sidebar.scss",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "sidebar.scss",
+                           "longName":  "front/src/app/layout/sidebar/sidebar.scss",
+                           "path":  "front/src/app/layout/sidebar/sidebar.scss"
+                       },
+                       {
+                           "key":  "coffeeflow",
+                           "enabled":  true,
+                           "qualifier":  "TRK",
+                           "name":  "CoffeeFlow",
+                           "longName":  "CoffeeFlow"
+                       },
+                       {
+                           "key":  "coffeeflow:front/src/app/features/productos/producto-list/producto-list.html",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "producto-list.html",
+                           "longName":  "front/src/app/features/productos/producto-list/producto-list.html",
+                           "path":  "front/src/app/features/productos/producto-list/producto-list.html"
+                       },
+                       {
+                           "key":  "coffeeflow:front/src/app/features/reportes/reporte-ventas/reporte-ventas.html",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "reporte-ventas.html",
+                           "longName":  "front/src/app/features/reportes/reporte-ventas/reporte-ventas.html",
+                           "path":  "front/src/app/features/reportes/reporte-ventas/reporte-ventas.html"
+                       },
+                       {
+                           "key":  "coffeeflow:front/src/app/features/ventas/nueva-venta/nueva-venta.html",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "nueva-venta.html",
+                           "longName":  "front/src/app/features/ventas/nueva-venta/nueva-venta.html",
+                           "path":  "front/src/app/features/ventas/nueva-venta/nueva-venta.html"
+                       },
+                       {
+                           "key":  "coffeeflow:front/src/app/features/auth/login/login.scss",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "login.scss",
+                           "longName":  "front/src/app/features/auth/login/login.scss",
+                           "path":  "front/src/app/features/auth/login/login.scss"
+                       },
+                       {
+                           "key":  "coffeeflow:front/src/core/services/cafeteria.service.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "cafeteria.service.ts",
+                           "longName":  "front/src/core/services/cafeteria.service.ts",
+                           "path":  "front/src/core/services/cafeteria.service.ts"
+                       }
+                   ],
+    "facets":  [
+
+               ]
+}

@@ -1,0 +1,70 @@
+# Plan de automatizacion OWASP ZAP 2.17 - CoffeeFlow
+# Ejecutar con: powershell -ExecutionPolicy Bypass -File .\pruebas-seguridad\ejecutar-zap.ps1
+env:
+  contexts:
+    - name: CoffeeFlow
+      urls:
+        - http://localhost:8080
+      includePaths:
+        - http://localhost:8080.*
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+
+jobs:
+  - type: passiveScan-config
+    parameters:
+      maxAlertsPerRule: 10
+      scanOnlyInScope: true
+
+  # Rutas de la SPA (Angular resuelve todas en el cliente; el servidor devuelve index.html)
+  - type: requestor
+    requests:
+      - url: http://localhost:8080/login
+      - url: http://localhost:8080/dashboard
+      - url: http://localhost:8080/productos
+      - url: http://localhost:8080/ventas
+      - url: http://localhost:8080/reportes
+
+  - type: spider
+    parameters:
+      context: CoffeeFlow
+      url: http://localhost:8080/login
+      maxDuration: 2
+
+  # El AJAX spider ejecuta el JavaScript en Chrome headless para descubrir la navegacion del SPA
+  - type: spiderAjax
+    parameters:
+      context: CoffeeFlow
+      url: http://localhost:8080/login
+      browserId: chrome-headless
+      maxDuration: 3
+      maxCrawlDepth: 5
+
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 5
+
+  - type: activeScan
+    parameters:
+      context: CoffeeFlow
+      maxRuleDurationInMins: 2
+      maxScanDurationInMins: 15
+
+  - type: report
+    parameters:
+      template: traditional-html
+      reportDir: ./zap
+      reportFile: ZAP_CoffeeFlow.html
+      reportTitle: CoffeeFlow - Analisis de vulnerabilidades OWASP ZAP
+    risks: [high, medium, low, info]
+    confidences: [high, medium, low]
+
+  - type: report
+    parameters:
+      template: traditional-json
+      reportDir: ./zap
+      reportFile: ZAP_CoffeeFlow.json
+    risks: [high, medium, low, info]
+    confidences: [high, medium, low]

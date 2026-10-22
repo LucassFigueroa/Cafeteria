@@ -65,6 +65,33 @@ public class NuevaVentaPage {
         return 0;
     }
 
+    public String subtotalEnCarrito(String nombre) {
+        for (WebElement item : driver.findElements(ITEMS_CARRITO)) {
+            if (item.findElement(By.cssSelector(".cart-item-top strong")).getText().trim().equalsIgnoreCase(nombre)) {
+                return item.findElement(By.cssSelector(".cart-item-bottom > strong")).getText().trim();
+            }
+        }
+        throw new IllegalStateException("Producto no encontrado en el carrito: " + nombre);
+    }
+
+    public void incrementar(String nombre) {
+        itemCarrito(nombre).findElements(By.cssSelector(".quantity button")).get(1).click();
+    }
+
+    public void disminuir(String nombre) {
+        itemCarrito(nombre).findElements(By.cssSelector(".quantity button")).get(0).click();
+    }
+
+    public void quitar(String nombre) {
+        itemCarrito(nombre).findElement(By.cssSelector("button.remove")).click();
+    }
+
+    public void buscar(String texto) {
+        WebElement campo = driver.findElement(By.cssSelector(".filters .search input"));
+        campo.clear();
+        campo.sendKeys(texto);
+    }
+
     public int itemsEnCarrito() {
         return driver.findElements(ITEMS_CARRITO).size();
     }
@@ -88,6 +115,14 @@ public class NuevaVentaPage {
     public boolean mensajeEsExito() {
         String clases = driver.findElement(MENSAJE).getAttribute("class");
         return clases != null && clases.contains("success");
+    }
+
+    private WebElement itemCarrito(String nombre) {
+        return driver.findElements(ITEMS_CARRITO).stream()
+                .filter(i -> i.findElement(By.cssSelector(".cart-item-top strong")).getText().trim()
+                        .equalsIgnoreCase(nombre))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Producto no encontrado en el carrito: " + nombre));
     }
 
     private WebElement tarjeta(String nombre) {

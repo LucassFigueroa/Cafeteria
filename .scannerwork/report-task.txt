@@ -1,0 +1,6 @@
+projectKey=coffeeflow
+serverUrl=http://localhost:9000
+serverVersion=26.9.0.129388
+dashboardUrl=http://localhost:9000/dashboard?id=coffeeflow
+ceTaskId=64b64d82-dd9c-4328-a5f9-7d3d00e57087
+ceTaskUrl=http://localhost:9000/api/ce/task?id=64b64d82-dd9c-4328-a5f9-7d3d00e57087

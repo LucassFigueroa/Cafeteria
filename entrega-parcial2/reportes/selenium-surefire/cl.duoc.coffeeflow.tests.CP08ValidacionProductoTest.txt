@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: cl.duoc.coffeeflow.tests.CP08ValidacionProductoTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.912 s -- in cl.duoc.coffeeflow.tests.CP08ValidacionProductoTest
