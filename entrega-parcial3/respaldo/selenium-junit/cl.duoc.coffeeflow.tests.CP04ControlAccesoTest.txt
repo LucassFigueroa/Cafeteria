@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: cl.duoc.coffeeflow.tests.CP04ControlAccesoTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.430 s -- in cl.duoc.coffeeflow.tests.CP04ControlAccesoTest

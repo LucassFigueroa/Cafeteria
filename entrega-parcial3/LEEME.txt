@@ -1,0 +1,29 @@
+ENTREGA PARCIAL N.3 - TECNICAS DE CALIDAD DE SOFTWARE (TCY0101)
+Seccion: TECNICAS DE CALIDAD DE SOFTWARE_001D_OLS - Docente: Alicia Elena Ramos de Peraza
+Integrantes: Lucas Figueroa (Estudiante 1) y Santiago Serrano (Estudiante 2)
+Sistema: CoffeeFlow - Sistema de gestion para cafeteria
+Fecha: 26-11-2026
+
+VEREDICTO: NO se aprueba el paso a produccion publica (queda un caso Alta rechazado y 2 defectos Altos abiertos,
+DEF-05 y DEF-06). SI se aprueba como producto minimo viable (PMV) para un piloto supervisado: una caja, red local,
+sin datos sensibles.
+
+CONTENIDO
+  Informe_Parcial3_CoffeeFlow.docx / .pdf     Informe de Evidencias Parcial 3 (plantilla 3.2): cuestionario UAT de 18
+                                              preguntas, medidas correctivas, analisis de resultados y conclusiones.
+  uat\
+    Listado_Pruebas_de_Aceptacion_Ejecutadas_CoffeeFlow.xlsx   Lista de casos de aceptacion ejecutados (21 casos, 3 ciclos)
+    3.1.3_Planilla_Listado_de_Defectos_CoffeeFlow.xlsx          Planilla de defectos (14) + hoja de hallazgos diferidos
+    3.1.4_Informe_de_Resultados_Pruebas_de_Aceptacion_CoffeeFlow.docx / .pdf
+    3.2.3_Informe_Ejecutivo_CoffeeFlow.docx / .pdf              Medidas correctivas para el PMV
+    3.3.3_Informe_de_Certificacion_CoffeeFlow.docx / .pdf       Veredicto final y condiciones
+    Verificacion_de_Entregables_Parcial3.xlsx                   Checklist de entregables, consistencia de cifras y pendientes
+  Respaldo_Parcial3_CoffeeFlow.zip            Evidencias de los ciclos, resultados.json, reportes Selenium/JUnit, pruebas y diffs
+  correcciones_parcial3.diff                  Cambios de codigo del frontend (AF3 + Parcial 3)
+
+NOTAS
+  - Las plantillas 3.2.3, 3.3.3 y la de verificacion no estaban disponibles: los informes 3.2.3 y 3.3.3 usan el formato de
+    la plantilla 3.1.4 y la verificacion es una planilla propia. Pasar el contenido a las plantillas oficiales si difieren.
+  - Las correcciones de codigo estan sin commit en la carpeta Cafeteria-af3 (rama af3-correcciones), no en main.
+  - Cifras clave: 19 de 21 casos aceptados (90,5 %), 14 defectos (12 cerrados, 2 abiertos), Vitest 77/77,
+    Selenium/JUnit 39/41, cuestionario UAT 46/54, peor tiempo de vista 0,75 s.

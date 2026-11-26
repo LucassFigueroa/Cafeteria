@@ -37,9 +37,14 @@ public class NuevaVentaPage {
     }
 
     public void agregarProducto(String nombre, int veces) {
+        // El carrito nunca supera el stock: es la cantidad que debe verse al terminar los clics.
+        int esperado = Math.min(cantidadEnCarrito(nombre) + veces, stockMostrado(nombre));
         for (int i = 0; i < veces; i++) {
             tarjeta(nombre).findElement(By.tagName("button")).click();
         }
+        // La vista se actualiza de forma asincrona (Angular sin zone.js): se espera a que el pedido refleje
+        // los clics antes de leer cantidades y totales; si no, la lectura puede ocurrir a medio pintar.
+        wait.until(d -> cantidadEnCarrito(nombre) >= esperado);
     }
 
     public int stockMostrado(String nombre) {
