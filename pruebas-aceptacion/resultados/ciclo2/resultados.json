@@ -1,0 +1,234 @@
+{
+  "ciclo": "ciclo2",
+  "alfa": "http://localhost:4201",
+  "beta": "http://localhost:8081",
+  "inicio": "18-11-2026 19:01:08",
+  "fin": "18-11-2026 19:03:22",
+  "resultados": [
+    {
+      "id": "AUT-RU-01",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Con clave errónea se mostró \"Usuario o contraseña incorrectos.\", se mantuvo en /login y no se creó sesión (coffeeflow_logged = None). Con admin/1234 se abrió el Dashboard en 0.64 s.",
+      "evidencias": [
+        "AUT-RU-01_1_credenciales_invalidas.png",
+        "AUT-RU-01_2_ingreso_dashboard.png"
+      ],
+      "duracion_s": 4.6,
+      "fecha": "18-11-2026 19:01",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RU-02",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Carrito con 2 Cappuccino + 1 Croissant: total $6.900. Al confirmar: \"Venta #1004 registrada correctamente.\"; el carrito quedó con 0 ítems. Stock en Productos: Cappuccino 18 (antes 20), Croissant 7 (antes 8).",
+      "evidencias": [
+        "AUT-RU-02_1_carrito.png",
+        "AUT-RU-02_2_venta_confirmada.png",
+        "AUT-RU-02_3_stock_descontado.png"
+      ],
+      "duracion_s": 6.4,
+      "fecha": "18-11-2026 19:01",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RU-03",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Con precio 0 el formulario no se guardó (modal abierto). Mocha creado con precio $3.200 y stock 10; tras editar quedó en $3.400. Al eliminar se pidió confirmación (\"¿Deseas eliminar \"Mocha\"?\") y el producto desapareció; el catálogo volvió a 8 productos (inicial 8).",
+      "evidencias": [
+        "AUT-RU-03_1_precio_0_no_guarda.png",
+        "AUT-RU-03_2_producto_creado.png",
+        "AUT-RU-03_3_producto_editado.png",
+        "AUT-RU-03_4_producto_eliminado.png"
+      ],
+      "duracion_s": 7.3,
+      "fecha": "18-11-2026 19:01",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RU-04",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Dashboard: Ventas de hoy $16.100, Ventas realizadas 3, Stock bajo 1, Productos 8; \"Últimas ventas\" con 3 filas. El Dashboard identifica el producto con stock bajo (Muffin de chocolate).",
+      "evidencias": [
+        "AUT-RU-04_1_dashboard_inicio_turno.png"
+      ],
+      "duracion_s": 3.6,
+      "fecha": "18-11-2026 19:01",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RU-05",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Al cerrar sesión volvió a /login y coffeeflow_logged = None. Con \"Atrás\" quedó en /login (sin acceso); escribiendo /dashboard quedó en /login (sin acceso).",
+      "evidencias": [
+        "AUT-RU-05_1_sesion_cerrada.png",
+        "AUT-RU-05_2_boton_atras.png",
+        "AUT-RU-05_3_url_directa.png"
+      ],
+      "duracion_s": 7.4,
+      "fecha": "18-11-2026 19:01",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RS-01",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Sin iniciar sesión: /dashboard → /login; /productos → /login; /ventas → /login; /reportes → /login. Los 4 módulos redirigieron a /login.",
+      "evidencias": [
+        "AUT-RS-01_1_productos_sin_sesion.png"
+      ],
+      "duracion_s": 3.2,
+      "fecha": "18-11-2026 19:01",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RS-02",
+      "ambiente": "Beta (build de producción)",
+      "navegador": "Chrome",
+      "estado": "Rechazado",
+      "obtenido": "Escribiendo coffeeflow_logged=\"true\" en localStorage (sin login) y abriendo /dashboard: quedó en /dashboard (se mostró el Dashboard). Revisión del JavaScript descargado: credenciales encontradas en chunk-NFL3ZJRX.js: \"admin\",s.required],password:[\"1234\".",
+      "evidencias": [
+        "AUT-RS-02_1_sesion_falsificada.png"
+      ],
+      "duracion_s": 4.3,
+      "fecha": "18-11-2026 19:01",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RS-03",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Muffin de chocolate (stock 4): al pulsar agregar 5 veces el carrito quedó en 4 y se mostró \"No queda más stock de Muffin de chocolate.\". Se confirmó la venta (\"Venta #1004 registrada correctamente.\"); el stock quedó en 0 (nunca negativo) y el botón agregar quedó deshabilitado.",
+      "evidencias": [
+        "AUT-RS-03_1_quinta_unidad_rechazada.png",
+        "AUT-RS-03_2_stock_cero_boton_deshabilitado.png"
+      ],
+      "duracion_s": 5.2,
+      "fecha": "18-11-2026 19:01",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RS-04",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Con coffeeflow_productos = \"{corrupto\" e ingreso con admin/1234: se mostró el Dashboard con 8 productos; sin errores de consola.",
+      "evidencias": [
+        "AUT-RS-04_1_datos_corruptos.png"
+      ],
+      "duracion_s": 4.1,
+      "fecha": "18-11-2026 19:01",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RS-05",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Con 200 productos y 500 ventas: Dashboard (tras login) 0.66 s; Productos 0.14 s; Nueva venta 0.15 s; Reportes 0.55 s; Dashboard 0.22 s; Reporte rango completo (500 ventas) 0.20 s. El reporte listó 500 ventas. Peor tiempo: Dashboard (tras login) (0.66 s).",
+      "evidencias": [
+        "AUT-RS-05_1_productos_200.png",
+        "AUT-RS-05_2_reporte_500_ventas.png"
+      ],
+      "duracion_s": 6.0,
+      "fecha": "18-11-2026 19:02",
+      "traza": ""
+    },
+    {
+      "id": "AUT-RS-06",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Montos: $6.900, $5.000, $4.200, $16.100 (CLP sin decimales). Fechas del reporte: 18-11-2026, 18-11-2026, 18-11-2026 (dd-mm-aaaa). Horas del reporte: 11:20, 10:05, 09:15; Dashboard: 11:20, 10:05, 09:15 (24 h).",
+      "evidencias": [
+        "AUT-RS-06_1_dashboard_horas.png",
+        "AUT-RS-06_2_reporte_formatos.png"
+      ],
+      "duracion_s": 4.4,
+      "fecha": "18-11-2026 19:02",
+      "traza": ""
+    },
+    {
+      "id": "AUT-PN-01",
+      "ambiente": "Beta (build de producción)",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Venta Latte + Americano + Sándwich: total $9.200, \"Venta #1004 registrada correctamente.\". Dashboard: $25.300 en 4 ventas. Reporte \"Hoy\": 4 ventas por $25.300. Turno cerrado con \"Cerrar sesión\".",
+      "evidencias": [
+        "AUT-PN-01_1_venta_turno.png",
+        "AUT-PN-01_2_dashboard_actualizado.png",
+        "AUT-PN-01_3_reporte_del_dia.png"
+      ],
+      "duracion_s": 7.0,
+      "fecha": "18-11-2026 19:02",
+      "traza": ""
+    },
+    {
+      "id": "AUT-PN-02",
+      "ambiente": "Beta (build de producción)",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Brownie (Pastelería, $2.000, stock 3) quedó disponible en Nueva venta de inmediato. Venta de 3 unidades: $6.000, \"Venta #1004 registrada correctamente.\". Stock final 0; botón agregar deshabilitado. Tarjeta Stock bajo del Dashboard: 1 → 2.",
+      "evidencias": [
+        "AUT-PN-02_1_brownie_creado.png",
+        "AUT-PN-02_2_brownie_agotado.png",
+        "AUT-PN-02_3_alerta_stock_bajo.png"
+      ],
+      "duracion_s": 6.3,
+      "fecha": "18-11-2026 19:02",
+      "traza": ""
+    },
+    {
+      "id": "AUT-PN-03",
+      "ambiente": "Beta (build de producción)",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Té verde marcado como inactivo: estado en Productos \"Inactivo\"; en Nueva venta no aparece. Al reactivarlo vuelve a estar disponible para la venta.",
+      "evidencias": [
+        "AUT-PN-03_1_te_verde_inactivo.png",
+        "AUT-PN-03_2_venta_sin_te_verde.png"
+      ],
+      "duracion_s": 5.9,
+      "fecha": "18-11-2026 19:02",
+      "traza": ""
+    },
+    {
+      "id": "AUT-PN-04",
+      "ambiente": "Beta (build de producción)",
+      "navegador": "Chrome",
+      "estado": "Aceptado",
+      "obtenido": "Tras 2 ventas del turno ($4.800 y $3.800): reporte \"Hoy\" con 5 ventas, ingresos $24.700; suma de las filas $24.700 (diferencia $0); Dashboard $24.700. Productos vendidos 10 (suma de filas 10); más vendido Cappuccino. Detalle de cada venta = total: sí (#1005 $3.800 = $3.800; #1004 $4.800 = $4.800; #1003 $6.900 = $6.900; #1002 $5.000 = $5.000; #1001 $4.200 = $4.200).",
+      "evidencias": [
+        "AUT-PN-04_1_cuadratura_reporte.png"
+      ],
+      "duracion_s": 7.0,
+      "fecha": "18-11-2026 19:02",
+      "traza": ""
+    },
+    {
+      "id": "AUT-PN-05",
+      "ambiente": "Beta (build de producción)",
+      "navegador": "Chrome y Edge",
+      "estado": "Condicionado",
+      "obtenido": "Chrome: venta de 1 Croissant (\"Venta #1004 registrada correctamente.\"); tras cerrar y reabrir el navegador el reporte del día incluye #1004 y el stock de Croissant es 7. Edge: venta de 2 Americano ($4.400, \"Venta #1004 registrada correctamente.\") y reporte con 4 ventas. Errores de consola: Chrome 0, Edge 0. Firefox no está instalado en el equipo de pruebas: la compatibilidad con Firefox (RNF-03) queda pendiente.",
+      "evidencias": [
+        "AUT-PN-05_1_chrome_tras_reabrir.png",
+        "AUT-PN-05_2_edge_flujo_completo.png"
+      ],
+      "duracion_s": 51.4,
+      "fecha": "18-11-2026 19:03",
+      "traza": ""
+    }
+  ]
+}

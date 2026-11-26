@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="63" failures="0" errors="0" time="2.03283">
+    <testsuite name="src/app/app.routes.spec.ts" timestamp="2026-11-18T21:59:18.847Z" hostname="DESKTOP-7RTV4HI" tests="6" failures="0" errors="0" skipped="0" time="0.4219939">
+        <testcase classname="src/app/app.routes.spec.ts" name="PI-01 rutas protegidas (app.routes) &gt; PI-01.1 con sesion activa /productos carga el modulo Productos" time="0.3204389">
+        </testcase>
+        <testcase classname="src/app/app.routes.spec.ts" name="PI-01 rutas protegidas (app.routes) &gt; PI-01.2 una ruta desconocida redirige a /login" time="0.0436233">
+        </testcase>
+        <testcase classname="src/app/app.routes.spec.ts" name="PI-01 rutas protegidas (app.routes) &gt; PI-01.3 sin sesion /dashboard redirige a /login" time="0.0159902">
+        </testcase>
+        <testcase classname="src/app/app.routes.spec.ts" name="PI-01 rutas protegidas (app.routes) &gt; PI-01.3 sin sesion /productos redirige a /login" time="0.021234">
+        </testcase>
+        <testcase classname="src/app/app.routes.spec.ts" name="PI-01 rutas protegidas (app.routes) &gt; PI-01.3 sin sesion /ventas redirige a /login" time="0.0102246">
+        </testcase>
+        <testcase classname="src/app/app.routes.spec.ts" name="PI-01 rutas protegidas (app.routes) &gt; PI-01.3 sin sesion /reportes redirige a /login" time="0.0087629">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/core/guards/auth.guard.spec.ts" timestamp="2026-11-18T21:59:18.853Z" hostname="DESKTOP-7RTV4HI" tests="3" failures="0" errors="0" skipped="0" time="0.0339392">
+        <testcase classname="src/core/guards/auth.guard.spec.ts" name="PU-06 authGuard (core/guards) &gt; PU-06.1 con sesion activa permite el acceso" time="0.0244219">
+        </testcase>
+        <testcase classname="src/core/guards/auth.guard.spec.ts" name="PU-06 authGuard (core/guards) &gt; PU-06.2 sin sesion redirige a /login" time="0.0047167">
+        </testcase>
+        <testcase classname="src/core/guards/auth.guard.spec.ts" name="PU-06 authGuard (core/guards) &gt; PU-06.3 un valor distinto de &quot;true&quot; no se considera sesion valida" time="0.0030175">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/core/services/cafeteria.service.spec.ts" timestamp="2026-11-18T21:59:18.854Z" hostname="DESKTOP-7RTV4HI" tests="20" failures="0" errors="0" skipped="0" time="0.0907261">
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-02 carga de datos &gt; PU-02.1 sin datos guardados carga 8 productos y 3 ventas demo y los persiste" time="0.0232896">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-02 carga de datos &gt; PU-02.2 con datos guardados los reutiliza en lugar de los datos demo" time="0.0046298">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-02 carga de datos &gt; PU-02.3 con datos corruptos en localStorage se recupera con los datos demo" time="0.0046606">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-03 CRUD de productos &gt; PU-03.1 crearProducto asigna id = max + 1, lo agrega al inicio y lo persiste" time="0.0034902">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-03 CRUD de productos &gt; PU-03.2 crearProducto sin productos previos asigna id 1" time="0.0029853">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-03 CRUD de productos &gt; PU-03.3 actualizarProducto modifica solo el producto indicado y conserva su id" time="0.0036761">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-03 CRUD de productos &gt; PU-03.4 eliminarProducto quita el producto del estado y del almacenamiento" time="0.002442">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-04 registrarVenta &gt; PU-04.1 rechaza una venta sin items" time="0.0026085">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-04 registrarVenta &gt; PU-04.2 rechaza un producto inexistente" time="0.0023913">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-04 registrarVenta &gt; PU-04.3 rechaza un producto desactivado sin descontar stock" time="0.0029035">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-04 registrarVenta &gt; PU-04.4 rechaza una cantidad mayor al stock (valor limite stock + 1)" time="0.0016994">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-04 registrarVenta &gt; PU-04.5 acepta vender exactamente el stock disponible (valor limite) y deja stock 0" time="0.00226">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-04 registrarVenta &gt; PU-04.6 calcula subtotales y total, asigna id correlativo y descuenta stock" time="0.0021265">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-04 registrarVenta &gt; PU-04.7 persiste la venta y el stock en localStorage" time="0.001678">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-04 registrarVenta &gt; PU-04.8 registra la fecha en formato local aaaa-mm-ddTHH:mm:ss" time="0.0017188">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-04 registrarVenta &gt; PU-04.9 con el mismo producto repetido valida y descuenta la cantidad acumulada" time="0.0018531">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-05 ventasEntre &gt; PU-05.1 incluye los extremos del rango y ordena de la mas reciente a la mas antigua" time="0.0166003">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-05 ventasEntre &gt; PU-05.2 filtra por un unico dia" time="0.0035856">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-05 ventasEntre &gt; PU-05.3 sin fechas devuelve todas las ventas" time="0.0017287">
+        </testcase>
+        <testcase classname="src/core/services/cafeteria.service.spec.ts" name="CafeteriaService &gt; PU-05 ventasEntre &gt; PU-05.4 un rango sin ventas o invertido devuelve una lista vacia" time="0.0014769">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/features/dashboard/dashboard.spec.ts" timestamp="2026-11-18T21:59:18.894Z" hostname="DESKTOP-7RTV4HI" tests="4" failures="0" errors="0" skipped="0" time="0.2204068">
+        <testcase classname="src/app/features/dashboard/dashboard.spec.ts" name="PI-06 Dashboard &gt; PI-06.1 con los datos demo muestra $16.100 y 3 ventas del dia" time="0.162125">
+        </testcase>
+        <testcase classname="src/app/features/dashboard/dashboard.spec.ts" name="PI-06 Dashboard &gt; PI-06.2 stock bajo incluye stock 4 y 5 (limite) pero no 6 ni productos inactivos" time="0.0164491">
+        </testcase>
+        <testcase classname="src/app/features/dashboard/dashboard.spec.ts" name="PI-06 Dashboard &gt; PI-06.3 la tabla muestra solo las 5 ultimas ventas y se actualiza al registrar una venta" time="0.0261621">
+        </testcase>
+        <testcase classname="src/app/features/dashboard/dashboard.spec.ts" name="PI-06 Dashboard &gt; PI-06.4 un dia sin ventas muestra total $0 y 0 ventas sin errores" time="0.0135647">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/shared/utils/formato.spec.ts" timestamp="2026-11-18T21:59:18.895Z" hostname="DESKTOP-7RTV4HI" tests="5" failures="0" errors="0" skipped="0" time="0.0385888">
+        <testcase classname="src/app/shared/utils/formato.spec.ts" name="PU-01 formato (localizacion es-CL) &gt; PU-01.1 formatoCLP usa separador de miles y no muestra decimales" time="0.027271">
+        </testcase>
+        <testcase classname="src/app/shared/utils/formato.spec.ts" name="PU-01 formato (localizacion es-CL) &gt; PU-01.2 formatoCLP redondea montos con decimales (CLP no usa centavos)" time="0.0007203">
+        </testcase>
+        <testcase classname="src/app/shared/utils/formato.spec.ts" name="PU-01 formato (localizacion es-CL) &gt; PU-01.3 formatoCLP con valor limite 0" time="0.000576">
+        </testcase>
+        <testcase classname="src/app/shared/utils/formato.spec.ts" name="PU-01 formato (localizacion es-CL) &gt; PU-01.4 formatoFecha devuelve dd-mm-aaaa" time="0.0064597">
+        </testcase>
+        <testcase classname="src/app/shared/utils/formato.spec.ts" name="PU-01 formato (localizacion es-CL) &gt; PU-01.5 formatoHora devuelve HH:mm en formato 24 horas" time="0.0010947">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/features/auth/login/login.spec.ts" timestamp="2026-11-18T21:59:18.897Z" hostname="DESKTOP-7RTV4HI" tests="4" failures="0" errors="0" skipped="0" time="0.2250943">
+        <testcase classname="src/app/features/auth/login/login.spec.ts" name="PI-02 Login &gt; PI-02.1 credenciales validas registran la sesion y navegan a /dashboard" time="0.1692057">
+        </testcase>
+        <testcase classname="src/app/features/auth/login/login.spec.ts" name="PI-02 Login &gt; PI-02.2 credenciales invalidas muestran el error en pantalla y no crean sesion" time="0.0228444">
+        </testcase>
+        <testcase classname="src/app/features/auth/login/login.spec.ts" name="PI-02 Login &gt; PI-02.3 campos vacios invalidan el formulario y no se evalua la autenticacion" time="0.0164943">
+        </testcase>
+        <testcase classname="src/app/features/auth/login/login.spec.ts" name="PI-02 Login &gt; PI-02.4 el campo contraseña se renderiza oculto (type=password) (RNF-06)" time="0.0147337">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/features/productos/producto-list/producto-list.spec.ts" timestamp="2026-11-18T21:59:18.898Z" hostname="DESKTOP-7RTV4HI" tests="9" failures="0" errors="0" skipped="0" time="0.4071604">
+        <testcase classname="src/app/features/productos/producto-list/producto-list.spec.ts" name="PI-04 ProductoList &gt; PI-04.1 guardar un producto valido lo crea en el servicio y cierra el modal" time="0.2077207">
+        </testcase>
+        <testcase classname="src/app/features/productos/producto-list/producto-list.spec.ts" name="PI-04 ProductoList &gt; PI-04.2 no guarda con nombre vacio (validaciones del formulario)" time="0.0306916">
+        </testcase>
+        <testcase classname="src/app/features/productos/producto-list/producto-list.spec.ts" name="PI-04 ProductoList &gt; PI-04.2 no guarda con precio 0 (validaciones del formulario)" time="0.0288394">
+        </testcase>
+        <testcase classname="src/app/features/productos/producto-list/producto-list.spec.ts" name="PI-04 ProductoList &gt; PI-04.2 no guarda con precio negativo (validaciones del formulario)" time="0.0261149">
+        </testcase>
+        <testcase classname="src/app/features/productos/producto-list/producto-list.spec.ts" name="PI-04 ProductoList &gt; PI-04.2 no guarda con stock negativo (validaciones del formulario)" time="0.0259087">
+        </testcase>
+        <testcase classname="src/app/features/productos/producto-list/producto-list.spec.ts" name="PI-04 ProductoList &gt; PI-04.3 acepta los valores limite validos precio 1 y stock 0" time="0.0180174">
+        </testcase>
+        <testcase classname="src/app/features/productos/producto-list/producto-list.spec.ts" name="PI-04 ProductoList &gt; PI-04.4 editar precarga el formulario y actualiza el producto persistido" time="0.0231736">
+        </testcase>
+        <testcase classname="src/app/features/productos/producto-list/producto-list.spec.ts" name="PI-04 ProductoList &gt; PI-04.5 eliminar solo borra cuando el usuario confirma" time="0.0240308">
+        </testcase>
+        <testcase classname="src/app/features/productos/producto-list/producto-list.spec.ts" name="PI-04 ProductoList &gt; PI-04.6 la busqueda y el filtro de categoria se combinan" time="0.0201167">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/features/reportes/reporte-ventas/reporte-ventas.spec.ts" timestamp="2026-11-18T21:59:18.900Z" hostname="DESKTOP-7RTV4HI" tests="4" failures="0" errors="0" skipped="0" time="0.223554">
+        <testcase classname="src/app/features/reportes/reporte-ventas/reporte-ventas.spec.ts" name="PI-05 ReporteVentas &gt; PI-05.1 calcula ventas, ingresos, productos vendidos y producto mas vendido del periodo" time="0.1601007">
+        </testcase>
+        <testcase classname="src/app/features/reportes/reporte-ventas/reporte-ventas.spec.ts" name="PI-05 ReporteVentas &gt; PI-05.2 muestra fecha dd-mm-aaaa y el detalle expandible de la venta" time="0.0266864">
+        </testcase>
+        <testcase classname="src/app/features/reportes/reporte-ventas/reporte-ventas.spec.ts" name="PI-05 ReporteVentas &gt; PI-05.3 un rango sin ventas muestra totales en 0 y &quot;Sin datos&quot;" time="0.0183756">
+        </testcase>
+        <testcase classname="src/app/features/reportes/reporte-ventas/reporte-ventas.spec.ts" name="PI-05 ReporteVentas &gt; PI-05.4 un rango invertido (desde &gt; hasta) no muestra ventas" time="0.0162951">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/features/ventas/nueva-venta/nueva-venta.spec.ts" timestamp="2026-11-18T21:59:18.901Z" hostname="DESKTOP-7RTV4HI" tests="8" failures="0" errors="0" skipped="0" time="0.3713665">
+        <testcase classname="src/app/features/ventas/nueva-venta/nueva-venta.spec.ts" name="PI-03 NuevaVenta &gt; PI-03.1 la grilla muestra solo productos activos" time="0.201584">
+        </testcase>
+        <testcase classname="src/app/features/ventas/nueva-venta/nueva-venta.spec.ts" name="PI-03 NuevaVenta &gt; PI-03.2 agregar respeta el stock: la 5.a unidad de un producto con stock 4 se rechaza" time="0.0285764">
+        </testcase>
+        <testcase classname="src/app/features/ventas/nueva-venta/nueva-venta.spec.ts" name="PI-03 NuevaVenta &gt; PI-03.3 el total del carrito suma precio x cantidad y se muestra en CLP" time="0.0351136">
+        </testcase>
+        <testcase classname="src/app/features/ventas/nueva-venta/nueva-venta.spec.ts" name="PI-03 NuevaVenta &gt; PI-03.4 disminuir hasta 0 quita el item del carrito" time="0.0236945">
+        </testcase>
+        <testcase classname="src/app/features/ventas/nueva-venta/nueva-venta.spec.ts" name="PI-03 NuevaVenta &gt; PI-03.5 confirmar venta registra la transaccion, descuenta stock, persiste y vacia el carrito" time="0.0235052">
+        </testcase>
+        <testcase classname="src/app/features/ventas/nueva-venta/nueva-venta.spec.ts" name="PI-03 NuevaVenta &gt; PI-03.6 confirmar con el carrito vacio muestra un error y no registra ventas" time="0.0183803">
+        </testcase>
+        <testcase classname="src/app/features/ventas/nueva-venta/nueva-venta.spec.ts" name="PI-03 NuevaVenta &gt; PI-03.7 si el producto se desactiva despues de agregarlo, la venta se rechaza" time="0.0167206">
+        </testcase>
+        <testcase classname="src/app/features/ventas/nueva-venta/nueva-venta.spec.ts" name="PI-03 NuevaVenta &gt; PI-03.8 el buscador filtra por nombre sin distinguir mayusculas" time="0.0212212">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,75 @@
+{
+  "ciclo": "ciclo1_ux",
+  "alfa": "http://127.0.0.1:4200",
+  "beta": "http://127.0.0.1:4200",
+  "inicio": "25-11-2026 18:22:58",
+  "fin": "25-11-2026 18:23:03",
+  "resultados": [
+    {
+      "id": "AUT-UX-01",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Rechazado",
+      "obtenido": "Login vacío: sin mensajes. Producto con nombre en blanco, precio 0 y stock −1: 0 mensaje(s) (modal abierto). Con decimales: 0 mensaje(s) (el producto con decimales SE GUARDÓ). Productos antes/después: 8/9.",
+      "evidencias": [
+        "AUT-UX-01_1_login_campos_vacios.png",
+        "AUT-UX-01_2_producto_invalido.png",
+        "AUT-UX-01_3_decimales.png"
+      ],
+      "duracion_s": 6.5,
+      "fecha": "25-11-2026 18:12",
+      "traza": ""
+    },
+    {
+      "id": "AUT-UX-02",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Rechazado",
+      "obtenido": "Controles visibles sin nombre accesible (texto, aria-label o title): 38 (Productos: 16; Modal de producto: 19; Nueva venta: 3).",
+      "evidencias": [
+        "AUT-UX-02_1_modal_producto.png",
+        "AUT-UX-02_2_nueva_venta_con_pedido.png"
+      ],
+      "duracion_s": 5.1,
+      "fecha": "25-11-2026 18:23",
+      "traza": ""
+    },
+    {
+      "id": "AUT-UX-03",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Rechazado",
+      "obtenido": "Con Desde posterior a Hasta solo se mostró «No existen ventas para las fechas seleccionadas.». Con un rango válido el aviso desaparece.",
+      "evidencias": [
+        "AUT-UX-03_1_rango_invertido.png"
+      ],
+      "duracion_s": 5.4,
+      "fecha": "25-11-2026 18:12",
+      "traza": ""
+    },
+    {
+      "id": "AUT-UX-04",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Rechazado",
+      "obtenido": "Productos: sin ayuda para el usuario nuevo; Nueva venta: sin ayuda para el usuario nuevo.",
+      "evidencias": [],
+      "duracion_s": 4.7,
+      "fecha": "25-11-2026 18:12",
+      "traza": ""
+    },
+    {
+      "id": "AUT-UX-05",
+      "ambiente": "Alfa",
+      "navegador": "Chrome",
+      "estado": "Rechazado",
+      "obtenido": "La barra superior muestra «Miércoles, 25 De Noviembre» (formato esperado: «Miércoles, 25 de noviembre», solo la primera letra en mayúscula).",
+      "evidencias": [
+        "AUT-UX-05_1_fecha_barra_superior.png"
+      ],
+      "duracion_s": 3.5,
+      "fecha": "25-11-2026 18:12",
+      "traza": ""
+    }
+  ]
+}

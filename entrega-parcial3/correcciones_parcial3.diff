@@ -1,0 +1,679 @@
+diff --git a/front/src/app/app.routes.ts b/front/src/app/app.routes.ts
+index ff481c8..62c7da2 100644
+--- a/front/src/app/app.routes.ts
++++ b/front/src/app/app.routes.ts
+@@ -1,6 +1,7 @@
+ import { Routes } from '@angular/router';
+ 
+-export const authGuard = () => true;
++// AF3 DEF-01: se usa el guard real (antes: export const authGuard = () => true;)
++import { authGuard } from '../core/guards/auth.guard';
+ 
+ export const routes: Routes = [
+ 
+diff --git a/front/src/app/features/auth/login/login.html b/front/src/app/features/auth/login/login.html
+index d593d49..f27cd0e 100644
+--- a/front/src/app/features/auth/login/login.html
++++ b/front/src/app/features/auth/login/login.html
+@@ -49,6 +49,13 @@
+ 
+         </div>
+ 
++        @if (
++          form.controls.usuario.touched &&
++          form.controls.usuario.invalid
++        ) {
++          <small class="field-error" role="alert">Ingresa tu usuario.</small>
++        }
++
+       </div>
+ 
+ 
+@@ -73,6 +80,13 @@
+ 
+         </div>
+ 
++        @if (
++          form.controls.password.touched &&
++          form.controls.password.invalid
++        ) {
++          <small class="field-error" role="alert">Ingresa tu contraseña.</small>
++        }
++
+       </div>
+ 
+ 
+diff --git a/front/src/app/features/dashboard/dashboard.html b/front/src/app/features/dashboard/dashboard.html
+index 8419ab0..de7e42a 100644
+--- a/front/src/app/features/dashboard/dashboard.html
++++ b/front/src/app/features/dashboard/dashboard.html
+@@ -121,6 +121,33 @@
+   </div>
+ 
+ 
++
++
++  <!-- AF3 DEF-07: listado de productos con stock bajo (RF-07) -->
++  @if (stockBajo().length > 0) {
++
++    <section class="card low-stock">
++
++      <div class="card-header">
++        <div>
++          <h2>Productos con stock bajo</h2>
++          <p>Productos activos con 5 unidades o menos</p>
++        </div>
++      </div>
++
++      <ul class="low-stock-list">
++        @for (producto of stockBajo(); track producto.id) {
++          <li>
++            <span>{{ producto.nombre }}</span>
++            <strong>{{ producto.stock }} u.</strong>
++          </li>
++        }
++      </ul>
++
++    </section>
++
++  }
++
+   <section class="card recent">
+ 
+     <div class="card-header">
+diff --git a/front/src/app/features/dashboard/dashboard.scss b/front/src/app/features/dashboard/dashboard.scss
+index e6dc330..ace974c 100644
+--- a/front/src/app/features/dashboard/dashboard.scss
++++ b/front/src/app/features/dashboard/dashboard.scss
+@@ -243,4 +243,30 @@ td {
+       );
+   }
+ 
+-}
+\ No newline at end of file
++}
++
++/* AF3 DEF-07: productos con stock bajo */
++.low-stock {
++  padding: 24px;
++  margin-bottom: 25px;
++}
++
++.low-stock-list {
++  list-style: none;
++  margin: 12px 0 0;
++  padding: 0;
++  display: flex;
++  flex-wrap: wrap;
++  gap: 10px;
++
++  li {
++    display: flex;
++    gap: 10px;
++    align-items: center;
++    padding: 8px 14px;
++    border-radius: 999px;
++    background: #fdecea;
++    color: #8a2c1f;
++    font-size: 14px;
++  }
++}
+diff --git a/front/src/app/features/productos/producto-list/producto-list.html b/front/src/app/features/productos/producto-list/producto-list.html
+index cd019d2..9f331b0 100644
+--- a/front/src/app/features/productos/producto-list/producto-list.html
++++ b/front/src/app/features/productos/producto-list/producto-list.html
+@@ -26,6 +26,15 @@
+   </div>
+ 
+ 
++  <details class="help">
++    <summary>¿Cómo agregar o editar un producto?</summary>
++    <ol>
++      <li>Presiona «+ Nuevo producto» para crear uno, o el lápiz de la fila para editar uno existente.</li>
++      <li>Completa nombre, categoría, precio y stock. El precio y el stock son números enteros.</li>
++      <li>Presiona «Guardar». Para ocultar un producto de las ventas, desmarca «Producto activo».</li>
++    </ol>
++  </details>
++
+   <section class="card products-card">
+ 
+     <div class="toolbar">
+@@ -39,6 +48,7 @@
+         <input
+           type="text"
+           placeholder="Buscar producto..."
++          aria-label="Buscar producto"
+           [(ngModel)]="busqueda"
+         >
+ 
+@@ -46,6 +56,7 @@
+ 
+ 
+       <select
++        aria-label="Filtrar por categoría"
+         [(ngModel)]="categoriaFiltro"
+       >
+ 
+@@ -180,6 +191,8 @@
+                   <button
+                     class="edit"
+                     type="button"
++                    [attr.aria-label]="'Editar ' + producto.nombre"
++                    [title]="'Editar ' + producto.nombre"
+                     (click)="editar(producto)"
+                   >
+                     ✏️
+@@ -189,6 +202,8 @@
+                   <button
+                     class="delete"
+                     type="button"
++                    [attr.aria-label]="'Eliminar ' + producto.nombre"
++                    [title]="'Eliminar ' + producto.nombre"
+                     (click)="eliminar(producto)"
+                   >
+                     🗑️
+@@ -258,6 +273,8 @@
+           <button
+             class="close"
+             type="button"
++            aria-label="Cerrar"
++            title="Cerrar"
+             (click)="cerrarModal()"
+           >
+             ×
+@@ -273,26 +290,34 @@
+ 
+           <div class="field">
+ 
+-            <label>
++            <label for="prod-nombre">
+               Nombre
+             </label>
+ 
+             <input
++              id="prod-nombre"
+               type="text"
+               formControlName="nombre"
+               placeholder="Ej: Cappuccino"
+             >
++            @if (
++              form.controls.nombre.touched &&
++              form.controls.nombre.invalid
++            ) {
++              <small class="field-error" role="alert">El nombre es obligatorio.</small>
++            }
+ 
+           </div>
+ 
+ 
+           <div class="field">
+ 
+-            <label>
++            <label for="prod-categoria">
+               Categoría
+             </label>
+ 
+             <select
++              id="prod-categoria"
+               formControlName="categoria"
+             >
+ 
+@@ -329,30 +354,46 @@
+ 
+             <div class="field">
+ 
+-              <label>
++              <label for="prod-precio">
+                 Precio
+               </label>
+ 
+               <input
++                id="prod-precio"
+                 type="number"
+                 formControlName="precio"
+                 min="1"
++                step="1"
+               >
++              @if (
++                form.controls.precio.touched &&
++                form.controls.precio.invalid
++              ) {
++                <small class="field-error" role="alert">El precio debe ser un número entero mayor o igual a 1.</small>
++              }
+ 
+             </div>
+ 
+ 
+             <div class="field">
+ 
+-              <label>
++              <label for="prod-stock">
+                 Stock
+               </label>
+ 
+               <input
++                id="prod-stock"
+                 type="number"
+                 formControlName="stock"
+                 min="0"
++                step="1"
+               >
++              @if (
++                form.controls.stock.touched &&
++                form.controls.stock.invalid
++              ) {
++                <small class="field-error" role="alert">El stock debe ser un número entero mayor o igual a 0.</small>
++              }
+ 
+             </div>
+ 
+diff --git a/front/src/app/features/productos/producto-list/producto-list.ts b/front/src/app/features/productos/producto-list/producto-list.ts
+index a857e85..1535294 100644
+--- a/front/src/app/features/productos/producto-list/producto-list.ts
++++ b/front/src/app/features/productos/producto-list/producto-list.ts
+@@ -4,9 +4,11 @@ import {
+ } from '@angular/core';
+ 
+ import {
++  AbstractControl,
+   FormsModule,
+   ReactiveFormsModule,
+   FormBuilder,
++  ValidationErrors,
+   Validators
+ } from '@angular/forms';
+ 
+@@ -22,6 +24,34 @@ import {
+   formatoCLP
+ } from '../../../shared/utils/formato';
+ 
++/** UAT-P3 DEF-08: un nombre formado solo por espacios no cuenta como nombre. */
++export function nombreNoVacio(
++  control: AbstractControl
++): ValidationErrors | null {
++
++  const valor = control.value;
++
++  return typeof valor === 'string' && valor.trim().length > 0
++    ? null
++    : { required: true };
++}
++
++/** UAT-P3 DEF-09: precios (CLP) y unidades de stock son numeros enteros. */
++export function numeroEntero(
++  control: AbstractControl
++): ValidationErrors | null {
++
++  const valor = control.value;
++
++  if (valor === null || valor === '') {
++    return null;
++  }
++
++  return Number.isInteger(Number(valor))
++    ? null
++    : { entero: true };
++}
++
+ @Component({
+   selector: 'app-producto-list',
+ 
+@@ -68,7 +98,7 @@ export class ProductoList {
+ 
+       nombre: [
+         '',
+-        Validators.required
++        nombreNoVacio
+       ],
+ 
+       categoria: [
+@@ -80,7 +110,8 @@ export class ProductoList {
+         0,
+         [
+           Validators.required,
+-          Validators.min(1)
++          Validators.min(1),
++          numeroEntero
+         ]
+       ],
+ 
+@@ -88,7 +119,8 @@ export class ProductoList {
+         0,
+         [
+           Validators.required,
+-          Validators.min(0)
++          Validators.min(0),
++          numeroEntero
+         ]
+       ],
+ 
+diff --git a/front/src/app/features/reportes/reporte-ventas/reporte-ventas.html b/front/src/app/features/reportes/reporte-ventas/reporte-ventas.html
+index b1aa6d4..20d01c2 100644
+--- a/front/src/app/features/reportes/reporte-ventas/reporte-ventas.html
++++ b/front/src/app/features/reportes/reporte-ventas/reporte-ventas.html
+@@ -21,11 +21,12 @@
+ 
+     <div class="field">
+ 
+-      <label>
++      <label for="rep-desde">
+         Desde
+       </label>
+ 
+       <input
++        id="rep-desde"
+         type="date"
+         [(ngModel)]="desde"
+       >
+@@ -35,11 +36,12 @@
+ 
+     <div class="field">
+ 
+-      <label>
++      <label for="rep-hasta">
+         Hasta
+       </label>
+ 
+       <input
++        id="rep-hasta"
+         type="date"
+         [(ngModel)]="hasta"
+       >
+@@ -67,6 +69,13 @@
+   </section>
+ 
+ 
++  @if (rangoInvalido) {
++    <div class="range-error" role="alert">
++      La fecha «Desde» no puede ser posterior a «Hasta». Corrige el rango para ver las ventas.
++    </div>
++  }
++
++
+   <div class="stats">
+ 
+     <article>
+diff --git a/front/src/app/features/reportes/reporte-ventas/reporte-ventas.ts b/front/src/app/features/reportes/reporte-ventas/reporte-ventas.ts
+index ba420b9..14edfcd 100644
+--- a/front/src/app/features/reportes/reporte-ventas/reporte-ventas.ts
++++ b/front/src/app/features/reportes/reporte-ventas/reporte-ventas.ts
+@@ -87,6 +87,17 @@ export class ReporteVentas {
+   }
+ 
+ 
++  /** UAT-P3 DEF-13: rango invertido (Desde posterior a Hasta). */
++  get rangoInvalido(): boolean {
++
++    return (
++      !!this.consultaDesde &&
++      !!this.consultaHasta &&
++      this.consultaDesde > this.consultaHasta
++    );
++  }
++
++
+   get ventas(): Venta[] {
+ 
+     return this.cafeteria
+diff --git a/front/src/app/features/ventas/nueva-venta/nueva-venta.html b/front/src/app/features/ventas/nueva-venta/nueva-venta.html
+index 558ec06..49bc5a6 100644
+--- a/front/src/app/features/ventas/nueva-venta/nueva-venta.html
++++ b/front/src/app/features/ventas/nueva-venta/nueva-venta.html
+@@ -17,6 +17,16 @@
+   </div>
+ 
+ 
++  <details class="help">
++    <summary>¿Cómo registrar una venta?</summary>
++    <ol>
++      <li>Busca o filtra los productos y presiona «+ Agregar» en cada uno que pida el cliente.</li>
++      <li>Revisa el pedido a la derecha: usa − y + para cambiar la cantidad o × para quitar un producto.</li>
++      <li>Verifica el total y presiona «Confirmar venta». El stock se descuenta automáticamente.</li>
++    </ol>
++  </details>
++
++
+   @if (mensaje) {
+ 
+     <div
+@@ -43,6 +53,7 @@
+           <input
+             type="text"
+             placeholder="Buscar producto..."
++            aria-label="Buscar producto"
+             [(ngModel)]="busqueda"
+           >
+ 
+@@ -50,6 +61,7 @@
+ 
+ 
+         <select
++          aria-label="Filtrar por categoría"
+           [(ngModel)]="categoriaFiltro"
+         >
+ 
+@@ -115,6 +127,7 @@
+ 
+             <button
+               type="button"
++              [attr.aria-label]="'Agregar ' + producto.nombre + ' al pedido'"
+               [disabled]="producto.stock === 0"
+               (click)="agregar(producto)"
+             >
+@@ -185,6 +198,8 @@
+               <button
+                 class="remove"
+                 type="button"
++                [attr.aria-label]="'Quitar ' + item.nombre + ' del pedido'"
++                [title]="'Quitar ' + item.nombre + ' del pedido'"
+                 (click)="quitar(item)"
+               >
+                 ×
+@@ -199,6 +214,7 @@
+ 
+                 <button
+                   type="button"
++                  [attr.aria-label]="'Disminuir cantidad de ' + item.nombre"
+                   (click)="disminuir(item)"
+                 >
+                   −
+@@ -210,6 +226,7 @@
+ 
+                 <button
+                   type="button"
++                  [attr.aria-label]="'Aumentar cantidad de ' + item.nombre"
+                   (click)="incrementar(item)"
+                 >
+                   +
+diff --git a/front/src/app/layout/topbar/topbar.scss b/front/src/app/layout/topbar/topbar.scss
+index db1edf8..44b8391 100644
+--- a/front/src/app/layout/topbar/topbar.scss
++++ b/front/src/app/layout/topbar/topbar.scss
+@@ -31,7 +31,11 @@
+   color:
+     var(--text-soft);
+ 
+-  text-transform: capitalize;
++}
++
++/* UAT-P3 DEF-14: "miércoles, 25 de noviembre" (antes: "25 De Noviembre") */
++.welcome::first-letter {
++  text-transform: uppercase;
+ }
+ 
+ 
+diff --git a/front/src/app/shared/utils/formato.ts b/front/src/app/shared/utils/formato.ts
+index 00aef39..79af677 100644
+--- a/front/src/app/shared/utils/formato.ts
++++ b/front/src/app/shared/utils/formato.ts
+@@ -21,6 +21,7 @@ export function formatoHora(fecha: string): string {
+ 
+   return new Intl.DateTimeFormat('es-CL', {
+     hour: '2-digit',
+-    minute: '2-digit'
++    minute: '2-digit',
++    hourCycle: 'h23' // AF3 DEF-04
+   }).format(date);
+ }
+\ No newline at end of file
+diff --git a/front/src/core/services/cafeteria.service.ts b/front/src/core/services/cafeteria.service.ts
+index c6d8175..6db6e0f 100644
+--- a/front/src/core/services/cafeteria.service.ts
++++ b/front/src/core/services/cafeteria.service.ts
+@@ -37,40 +37,41 @@ export class CafeteriaService {
+ 
+   private cargarDatos(): void {
+ 
+-    const productosGuardados =
+-      localStorage.getItem(this.PRODUCTOS_KEY);
+-
+-    const ventasGuardadas =
+-      localStorage.getItem(this.VENTAS_KEY);
+-
+-    if (productosGuardados) {
+-
+-      this.productosState.set(
+-        JSON.parse(productosGuardados)
+-      );
+-
+-    } else {
+-
+-      const productos = this.productosDemo();
++    // AF3 DEF-02: si una clave no existe o contiene datos corruptos se usan los datos demo
++    const productos =
++      this.leerLista<Producto>(this.PRODUCTOS_KEY);
+ 
++    if (productos) {
+       this.productosState.set(productos);
+-
++    } else {
++      this.productosState.set(this.productosDemo());
+       this.guardarProductos();
+     }
+ 
+-    if (ventasGuardadas) {
+-
+-      this.ventasState.set(
+-        JSON.parse(ventasGuardadas)
+-      );
++    const ventas =
++      this.leerLista<Venta>(this.VENTAS_KEY);
+ 
++    if (ventas) {
++      this.ventasState.set(ventas);
+     } else {
++      this.ventasState.set(this.ventasDemo());
++      this.guardarVentas();
++    }
++  }
+ 
+-      const ventas = this.ventasDemo();
++  private leerLista<T>(clave: string): T[] | null {
+ 
+-      this.ventasState.set(ventas);
++    const texto = localStorage.getItem(clave);
+ 
+-      this.guardarVentas();
++    if (!texto) {
++      return null;
++    }
++
++    try {
++      const datos: unknown = JSON.parse(texto);
++      return Array.isArray(datos) ? datos as T[] : null;
++    } catch {
++      return null;
+     }
+   }
+ 
+@@ -289,6 +290,13 @@ export class CafeteriaService {
+     const productosActuales =
+       this.productosState();
+ 
++    // AF3 DEF-03: cantidades acumuladas por producto
++    const solicitado = new Map<number, number>();
++
++    items.forEach(i =>
++      solicitado.set(i.productoId, (solicitado.get(i.productoId) ?? 0) + i.cantidad)
++    );
++
+     const detalleVenta: VentaItem[] = [];
+ 
+     for (const item of items) {
+@@ -314,7 +322,7 @@ export class CafeteriaService {
+         };
+       }
+ 
+-      if (producto.stock < item.cantidad) {
++      if (producto.stock < (solicitado.get(producto.id) ?? 0)) {
+ 
+         return {
+           ok: false,
+@@ -358,11 +366,8 @@ export class CafeteriaService {
+     const cantidades =
+       new Map<number, number>();
+ 
+-    items.forEach(item =>
+-      cantidades.set(
+-        item.productoId,
+-        item.cantidad
+-      )
++    solicitado.forEach((cantidad, productoId) =>
++      cantidades.set(productoId, cantidad)
+     );
+ 
+     this.productosState.update(
+diff --git a/front/src/styles.scss b/front/src/styles.scss
+index cc71d26..c44a414 100644
+--- a/front/src/styles.scss
++++ b/front/src/styles.scss
+@@ -141,4 +141,47 @@ button {
+       31,
+       0.06
+     );
+-}
+\ No newline at end of file
++}
++
++
++/* ---------------------------------------------------------------
++   Parcial 3 - mejoras de usabilidad (UAT)
++   --------------------------------------------------------------- */
++
++.field-error {
++  display: block;
++  margin-top: 6px;
++  color: var(--danger, #a83f3f);
++  font-size: 12.5px;
++  font-weight: 600;
++}
++
++.range-error {
++  margin-bottom: 18px;
++  padding: 13px 16px;
++  border-radius: 11px;
++  background: #fff0f0;
++  color: var(--danger, #a83f3f);
++  font-weight: 600;
++}
++
++details.help {
++  margin-bottom: 18px;
++  padding: 12px 16px;
++  border: 1px solid var(--border, #eadfd7);
++  border-radius: 12px;
++  background: #fffaf5;
++  color: var(--text, #3d281f);
++  font-size: 14px;
++}
++
++details.help summary {
++  cursor: pointer;
++  font-weight: 700;
++}
++
++details.help ol {
++  margin: 10px 0 2px;
++  padding-left: 20px;
++  line-height: 1.6;
++}
