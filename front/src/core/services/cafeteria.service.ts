@@ -37,40 +37,41 @@ export class CafeteriaService {
 
   private cargarDatos(): void {
 
-    const productosGuardados =
-      localStorage.getItem(this.PRODUCTOS_KEY);
+    // AF3 DEF-02: si una clave no existe o contiene datos corruptos se usan los datos demo
+    const productos =
+      this.leerLista<Producto>(this.PRODUCTOS_KEY);
 
-    const ventasGuardadas =
-      localStorage.getItem(this.VENTAS_KEY);
-
-    if (productosGuardados) {
-
-      this.productosState.set(
-        JSON.parse(productosGuardados)
-      );
-
-    } else {
-
-      const productos = this.productosDemo();
-
+    if (productos) {
       this.productosState.set(productos);
-
+    } else {
+      this.productosState.set(this.productosDemo());
       this.guardarProductos();
     }
 
-    if (ventasGuardadas) {
+    const ventas =
+      this.leerLista<Venta>(this.VENTAS_KEY);
 
-      this.ventasState.set(
-        JSON.parse(ventasGuardadas)
-      );
-
-    } else {
-
-      const ventas = this.ventasDemo();
-
+    if (ventas) {
       this.ventasState.set(ventas);
-
+    } else {
+      this.ventasState.set(this.ventasDemo());
       this.guardarVentas();
+    }
+  }
+
+  private leerLista<T>(clave: string): T[] | null {
+
+    const texto = localStorage.getItem(clave);
+
+    if (!texto) {
+      return null;
+    }
+
+    try {
+      const datos: unknown = JSON.parse(texto);
+      return Array.isArray(datos) ? datos as T[] : null;
+    } catch {
+      return null;
     }
   }
 
@@ -289,6 +290,13 @@ export class CafeteriaService {
     const productosActuales =
       this.productosState();
 
+    // AF3 DEF-03: cantidades acumuladas por producto
+    const solicitado = new Map<number, number>();
+
+    items.forEach(i =>
+      solicitado.set(i.productoId, (solicitado.get(i.productoId) ?? 0) + i.cantidad)
+    );
+
     const detalleVenta: VentaItem[] = [];
 
     for (const item of items) {
@@ -314,7 +322,7 @@ export class CafeteriaService {
         };
       }
 
-      if (producto.stock < item.cantidad) {
+      if (producto.stock < (solicitado.get(producto.id) ?? 0)) {
 
         return {
           ok: false,
@@ -358,11 +366,8 @@ export class CafeteriaService {
     const cantidades =
       new Map<number, number>();
 
-    items.forEach(item =>
-      cantidades.set(
-        item.productoId,
-        item.cantidad
-      )
+    solicitado.forEach((cantidad, productoId) =>
+      cantidades.set(productoId, cantidad)
     );
 
     this.productosState.update(

@@ -17,6 +17,16 @@
   </div>
 
 
+  <details class="help">
+    <summary>¿Cómo registrar una venta?</summary>
+    <ol>
+      <li>Busca o filtra los productos y presiona «+ Agregar» en cada uno que pida el cliente.</li>
+      <li>Revisa el pedido a la derecha: usa − y + para cambiar la cantidad o × para quitar un producto.</li>
+      <li>Verifica el total y presiona «Confirmar venta». El stock se descuenta automáticamente.</li>
+    </ol>
+  </details>
+
+
   @if (mensaje) {
 
     <div
@@ -43,6 +53,7 @@
           <input
             type="text"
             placeholder="Buscar producto..."
+            aria-label="Buscar producto"
             [(ngModel)]="busqueda"
           >
 
@@ -50,6 +61,7 @@
 
 
         <select
+          aria-label="Filtrar por categoría"
           [(ngModel)]="categoriaFiltro"
         >
 
@@ -115,6 +127,7 @@
 
             <button
               type="button"
+              [attr.aria-label]="'Agregar ' + producto.nombre + ' al pedido'"
               [disabled]="producto.stock === 0"
               (click)="agregar(producto)"
             >
@@ -185,6 +198,8 @@
               <button
                 class="remove"
                 type="button"
+                [attr.aria-label]="'Quitar ' + item.nombre + ' del pedido'"
+                [title]="'Quitar ' + item.nombre + ' del pedido'"
                 (click)="quitar(item)"
               >
                 ×
@@ -199,6 +214,7 @@
 
                 <button
                   type="button"
+                  [attr.aria-label]="'Disminuir cantidad de ' + item.nombre"
                   (click)="disminuir(item)"
                 >
                   −
@@ -210,6 +226,7 @@
 
                 <button
                   type="button"
+                  [attr.aria-label]="'Aumentar cantidad de ' + item.nombre"
                   (click)="incrementar(item)"
                 >
                   +

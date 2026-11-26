@@ -244,3 +244,29 @@ td {
   }
 
 }
+
+/* AF3 DEF-07: productos con stock bajo */
+.low-stock {
+  padding: 24px;
+  margin-bottom: 25px;
+}
+
+.low-stock-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #fdecea;
+    color: #8a2c1f;
+    font-size: 14px;
+  }
+}

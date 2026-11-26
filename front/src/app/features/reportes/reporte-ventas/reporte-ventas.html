@@ -21,11 +21,12 @@
 
     <div class="field">
 
-      <label>
+      <label for="rep-desde">
         Desde
       </label>
 
       <input
+        id="rep-desde"
         type="date"
         [(ngModel)]="desde"
       >
@@ -35,11 +36,12 @@
 
     <div class="field">
 
-      <label>
+      <label for="rep-hasta">
         Hasta
       </label>
 
       <input
+        id="rep-hasta"
         type="date"
         [(ngModel)]="hasta"
       >
@@ -65,6 +67,13 @@
     </button>
 
   </section>
+
+
+  @if (rangoInvalido) {
+    <div class="range-error" role="alert">
+      La fecha «Desde» no puede ser posterior a «Hasta». Corrige el rango para ver las ventas.
+    </div>
+  }
 
 
   <div class="stats">

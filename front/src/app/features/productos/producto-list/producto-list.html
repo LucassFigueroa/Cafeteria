@@ -26,6 +26,15 @@
   </div>
 
 
+  <details class="help">
+    <summary>¿Cómo agregar o editar un producto?</summary>
+    <ol>
+      <li>Presiona «+ Nuevo producto» para crear uno, o el lápiz de la fila para editar uno existente.</li>
+      <li>Completa nombre, categoría, precio y stock. El precio y el stock son números enteros.</li>
+      <li>Presiona «Guardar». Para ocultar un producto de las ventas, desmarca «Producto activo».</li>
+    </ol>
+  </details>
+
   <section class="card products-card">
 
     <div class="toolbar">
@@ -39,6 +48,7 @@
         <input
           type="text"
           placeholder="Buscar producto..."
+          aria-label="Buscar producto"
           [(ngModel)]="busqueda"
         >
 
@@ -46,6 +56,7 @@
 
 
       <select
+        aria-label="Filtrar por categoría"
         [(ngModel)]="categoriaFiltro"
       >
 
@@ -180,6 +191,8 @@
                   <button
                     class="edit"
                     type="button"
+                    [attr.aria-label]="'Editar ' + producto.nombre"
+                    [title]="'Editar ' + producto.nombre"
                     (click)="editar(producto)"
                   >
                     ✏️
@@ -189,6 +202,8 @@
                   <button
                     class="delete"
                     type="button"
+                    [attr.aria-label]="'Eliminar ' + producto.nombre"
+                    [title]="'Eliminar ' + producto.nombre"
                     (click)="eliminar(producto)"
                   >
                     🗑️
@@ -258,6 +273,8 @@
           <button
             class="close"
             type="button"
+            aria-label="Cerrar"
+            title="Cerrar"
             (click)="cerrarModal()"
           >
             ×
@@ -273,26 +290,34 @@
 
           <div class="field">
 
-            <label>
+            <label for="prod-nombre">
               Nombre
             </label>
 
             <input
+              id="prod-nombre"
               type="text"
               formControlName="nombre"
               placeholder="Ej: Cappuccino"
             >
+            @if (
+              form.controls.nombre.touched &&
+              form.controls.nombre.invalid
+            ) {
+              <small class="field-error" role="alert">El nombre es obligatorio.</small>
+            }
 
           </div>
 
 
           <div class="field">
 
-            <label>
+            <label for="prod-categoria">
               Categoría
             </label>
 
             <select
+              id="prod-categoria"
               formControlName="categoria"
             >
 
@@ -329,30 +354,46 @@
 
             <div class="field">
 
-              <label>
+              <label for="prod-precio">
                 Precio
               </label>
 
               <input
+                id="prod-precio"
                 type="number"
                 formControlName="precio"
                 min="1"
+                step="1"
               >
+              @if (
+                form.controls.precio.touched &&
+                form.controls.precio.invalid
+              ) {
+                <small class="field-error" role="alert">El precio debe ser un número entero mayor o igual a 1.</small>
+              }
 
             </div>
 
 
             <div class="field">
 
-              <label>
+              <label for="prod-stock">
                 Stock
               </label>
 
               <input
+                id="prod-stock"
                 type="number"
                 formControlName="stock"
                 min="0"
+                step="1"
               >
+              @if (
+                form.controls.stock.touched &&
+                form.controls.stock.invalid
+              ) {
+                <small class="field-error" role="alert">El stock debe ser un número entero mayor o igual a 0.</small>
+              }
 
             </div>
 

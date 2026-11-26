@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
-export const authGuard = () => true;
+// AF3 DEF-01: se usa el guard real (antes: export const authGuard = () => true;)
+import { authGuard } from '../core/guards/auth.guard';
 
 export const routes: Routes = [
 

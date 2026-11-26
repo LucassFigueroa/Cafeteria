@@ -4,9 +4,11 @@ import {
 } from '@angular/core';
 
 import {
+  AbstractControl,
   FormsModule,
   ReactiveFormsModule,
   FormBuilder,
+  ValidationErrors,
   Validators
 } from '@angular/forms';
 
@@ -21,6 +23,34 @@ import {
 import {
   formatoCLP
 } from '../../../shared/utils/formato';
+
+/** UAT-P3 DEF-08: un nombre formado solo por espacios no cuenta como nombre. */
+export function nombreNoVacio(
+  control: AbstractControl
+): ValidationErrors | null {
+
+  const valor = control.value;
+
+  return typeof valor === 'string' && valor.trim().length > 0
+    ? null
+    : { required: true };
+}
+
+/** UAT-P3 DEF-09: precios (CLP) y unidades de stock son numeros enteros. */
+export function numeroEntero(
+  control: AbstractControl
+): ValidationErrors | null {
+
+  const valor = control.value;
+
+  if (valor === null || valor === '') {
+    return null;
+  }
+
+  return Number.isInteger(Number(valor))
+    ? null
+    : { entero: true };
+}
 
 @Component({
   selector: 'app-producto-list',
@@ -68,7 +98,7 @@ export class ProductoList {
 
       nombre: [
         '',
-        Validators.required
+        nombreNoVacio
       ],
 
       categoria: [
@@ -80,7 +110,8 @@ export class ProductoList {
         0,
         [
           Validators.required,
-          Validators.min(1)
+          Validators.min(1),
+          numeroEntero
         ]
       ],
 
@@ -88,7 +119,8 @@ export class ProductoList {
         0,
         [
           Validators.required,
-          Validators.min(0)
+          Validators.min(0),
+          numeroEntero
         ]
       ],
 

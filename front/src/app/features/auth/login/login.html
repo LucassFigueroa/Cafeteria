@@ -49,6 +49,13 @@
 
         </div>
 
+        @if (
+          form.controls.usuario.touched &&
+          form.controls.usuario.invalid
+        ) {
+          <small class="field-error" role="alert">Ingresa tu usuario.</small>
+        }
+
       </div>
 
 
@@ -72,6 +79,13 @@
           >
 
         </div>
+
+        @if (
+          form.controls.password.touched &&
+          form.controls.password.invalid
+        ) {
+          <small class="field-error" role="alert">Ingresa tu contraseña.</small>
+        }
 
       </div>
 

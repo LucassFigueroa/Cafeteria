@@ -31,7 +31,11 @@
   color:
     var(--text-soft);
 
-  text-transform: capitalize;
+}
+
+/* UAT-P3 DEF-14: "miércoles, 25 de noviembre" (antes: "25 De Noviembre") */
+.welcome::first-letter {
+  text-transform: uppercase;
 }
 
 

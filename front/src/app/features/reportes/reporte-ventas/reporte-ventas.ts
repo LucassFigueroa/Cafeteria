@@ -87,6 +87,17 @@ export class ReporteVentas {
   }
 
 
+  /** UAT-P3 DEF-13: rango invertido (Desde posterior a Hasta). */
+  get rangoInvalido(): boolean {
+
+    return (
+      !!this.consultaDesde &&
+      !!this.consultaHasta &&
+      this.consultaDesde > this.consultaHasta
+    );
+  }
+
+
   get ventas(): Venta[] {
 
     return this.cafeteria

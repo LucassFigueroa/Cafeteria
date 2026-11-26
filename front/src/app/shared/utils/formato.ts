@@ -21,6 +21,7 @@ export function formatoHora(fecha: string): string {
 
   return new Intl.DateTimeFormat('es-CL', {
     hour: '2-digit',
-    minute: '2-digit'
+    minute: '2-digit',
+    hourCycle: 'h23' // AF3 DEF-04
   }).format(date);
 }

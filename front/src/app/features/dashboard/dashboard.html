@@ -121,6 +121,33 @@
   </div>
 
 
+
+
+  <!-- AF3 DEF-07: listado de productos con stock bajo (RF-07) -->
+  @if (stockBajo().length > 0) {
+
+    <section class="card low-stock">
+
+      <div class="card-header">
+        <div>
+          <h2>Productos con stock bajo</h2>
+          <p>Productos activos con 5 unidades o menos</p>
+        </div>
+      </div>
+
+      <ul class="low-stock-list">
+        @for (producto of stockBajo(); track producto.id) {
+          <li>
+            <span>{{ producto.nombre }}</span>
+            <strong>{{ producto.stock }} u.</strong>
+          </li>
+        }
+      </ul>
+
+    </section>
+
+  }
+
   <section class="card recent">
 
     <div class="card-header">
